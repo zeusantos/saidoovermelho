@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saia do vermelho em 30 dias com o guia prático para iniciantes. Método simples para organizar suas finanças mesmo ganhando pouco.">
+    <title>Saia do Vermelho em 30 Dias | Finanças para Iniciantes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#16a34a',
+                            dark: '#14532d',
+                            light: '#f0fdf4',
+                            orange: '#ea580c',
+                            cta: '#22c55e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-cta {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-cta {
+            animation: pulse-cta 2s ease-in-out infinite;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-40">
+        <div class="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">💰</span>
+                <span class="font-bold text-brand-dark text-sm">Saia do Vermelho</span>
+            </div>
+            <a href="area-membros.html" class="text-sm text-brand-green font-semibold hover:underline">
+                Já sou aluno →
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-14 bg-gradient-to-b from-brand-light to-white">
+        <div class="max-w-lg mx-auto px-4 py-8 text-center">
+
+            <!-- Badge -->
+            <div class="inline-block bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+                ⚠️ Última turma com esse valor
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-3xl font-extrabold leading-tight text-gray-900 mb-3">
+                Saia do <span class="text-red-600">Vermelho</span> em 30 Dias:<br>O Guia para Quem Ganha Pouco
+            </h1>
+
+            <p class="text-gray-500 text-base mb-6 leading-relaxed">
+                Método simples de 3 passos para organizar suas contas, sair das dívidas e sobrar dinheiro no fim do mês — mesmo que você nunca tenha estudado finanças.
+            </p>
+
+            <!-- VSL Placeholder -->
+            <div class="relative bg-black rounded-2xl overflow-hidden mb-6 shadow-lg">
+                <div class="aspect-video flex items-center justify-center bg-gray-900">
+                    <div class="text-center p-6">
+                        <div class="text-5xl mb-3">▶️</div>
+                        <p class="text-white font-bold text-lg mb-1">Assista a apresentação gratuita</p>
+                        <p class="text-gray-400 text-sm">Toque para assistir o vídeo completo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price + CTA -->
+            <div class="bg-white border-2 border-gray-100 rounded-2xl p-5 shadow-sm mb-6">
+                <div class="text-sm text-gray-400 line-through">De R$ 197,00</div>
+                <div class="text-4xl font-extrabold text-brand-dark">
+                    12x de <span class="text-brand-green">R$ 9,74</span>
+                </div>
+                <div class="text-sm text-gray-500 mb-4">ou R$ 97,00 à vista</div>
+
+                <a href="checkout.html" class="block w-full bg-brand-cta hover:bg-green-600 text-white font-extrabold text-lg py-4 px-6 rounded-xl shadow-lg pulse-cta transition-all">
+                    🔥 QUERO SAIR DO VERMELHO AGORA
+                </a>
+
+                <div class="flex items-center justify-center gap-2 mt-3 text-xs text-gray-400">
+                    <span>🔒 Compra segura</span>
+                    <span>·</span>
+                    <span>✅ 7 dias de garantia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para Quem é o Curso -->
+    <section class="py-10 bg-white">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-xl font-bold text-center mb-6">Esse curso é para você se...</h2>
+            <div class="space-y-4">
+                <div class="flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">😰</span>
+                    <div>
+                        <p class="font-semibold text-gray-800">Seu dinheiro some antes do fim do mês</p>
+                        <p class="text-sm text-gray-500">Você não sabe pra onde foi e vive no cheque especial.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">💳</span>
+                    <div>
+                        <p class="font-semibold text-gray-800">Você tem dívidas que parecem não ter fim</p>
+                        <p class="text-sm text-gray-500">Cartão de crédito estourado e nome sujo te impedem de dormir.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">😤</span>
+                    <div>
+                        <p class="font-semibold text-gray-800">Você acha que ganha pouco e nunca vai sobrar</p>
+                        <p class="text-sm text-gray-500">A verdade é que não é sobre quanto você ganha, é sobre o método.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">🤯</span>
+                    <div>
+                        <p class="font-semibold text-gray-800">Finanças parece complicado demais</p>
+                        <p class="text-sm text-gray-500">Planilhas, termos difíceis... você só quer algo que funcione na prática.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O que você vai aprender (5 Módulos) -->
+    <section class="py-10 bg-gray-50">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-xl font-bold text-center mb-2">O que você vai aprender</h2>
+            <p class="text-gray-500 text-sm text-center mb-6">5 módulos direto ao ponto, sem enrolação</p>
+
+            <div class="space-y-3">
+                <!-- Módulo 1 -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-brand-green font-bold text-sm">01</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Raio-X Financeiro Sem Planilha</h3>
+                            <p class="text-sm text-gray-500 mt-1">Como usar o bloco de notas do celular para mapear cada centavo que entra e sai — sem complicação.</p>
+                            <div class="flex items-center gap-2 mt-2 text-xs text-brand-green font-medium">
+                                <span>📱 3 vídeos</span>
+                                <span>·</span>
+                                <span>📄 1 PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-brand-green font-bold text-sm">02</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Negocie Suas Dívidas Como um Profissional</h3>
+                            <p class="text-sm text-gray-500 mt-1">Os scripts prontos e as plataformas certas para renegociar dívidas com até 90% de desconto.</p>
+                            <div class="flex items-center gap-2 mt-2 text-xs text-brand-green font-medium">
+                                <span>📱 4 vídeos</span>
+                                <span>·</span>
+                                <span>📄 2 PDFs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-brand-green font-bold text-sm">03</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Gaste Menos Sem Deixar de Viver</h3>
+                            <p class="text-sm text-gray-500 mt-1">A técnica dos "3 Cortes Inteligentes" que reduz gastos sem sacrificar o que importa pra você.</p>
+                            <div class="flex items-center gap-2 mt-2 text-xs text-brand-green font-medium">
+                                <span>📱 3 vídeos</span>
+                                <span>·</span>
+                                <span>📄 1 PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-brand-green font-bold text-sm">04</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Sua Primeira Reserva de Emergência</h3>
+                            <p class="text-sm text-gray-500 mt-1">Como juntar R$ 1.000 em 3 meses mesmo ganhando um salário mínimo. O passo a passo completo.</p>
+                            <div class="flex items-center gap-2 mt-2 text-xs text-brand-green font-medium">
+                                <span>📱 4 vídeos</span>
+                                <span>·</span>
+                                <span>📄 1 PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 5 -->
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex gap-3">
+                        <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-brand-green font-bold text-sm">05</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Renda Extra com o que Você Já Sabe</h3>
+                            <p class="text-sm text-gray-500 mt-1">5 formas reais de fazer dinheiro extra esse mês, usando apenas o celular e suas habilidades.</p>
+                            <div class="flex items-center gap-2 mt-2 text-xs text-brand-green font-medium">
+                                <span>📱 3 vídeos</span>
+                                <span>·</span>
+                                <span>📄 1 PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bônus -->
+    <section class="py-10 bg-white">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-xl font-bold text-center mb-6">🎁 Bônus Exclusivos</h2>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <span class="text-3xl">📊</span>
+                    <div>
+                        <p class="font-bold text-gray-900">Calculadora de Gastos no Celular</p>
+                        <p class="text-sm text-gray-500">App simples que você preenche em 2 minutos por dia.</p>
+                        <p class="text-xs text-red-500 font-semibold">Grátis: de R$ 47</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <span class="text-3xl">📋</span>
+                    <div>
+                        <p class="font-bold text-gray-900">Scripts Prontos para Negociar Dívidas</p>
+                        <p class="text-sm text-gray-500">O que falar no WhatsApp, telefone e e-mail para cada tipo de dívida.</p>
+                        <p class="text-xs text-red-500 font-semibold">Grátis: de R$ 37</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <span class="text-3xl">👥</span>
+                    <div>
+                        <p class="font-bold text-gray-900">Grupo Exclusivo no WhatsApp</p>
+                        <p class="text-sm text-gray-500">30 dias de acompanhamento diário com dicas e motivação.</p>
+                        <p class="text-xs text-red-500 font-semibold">Grátis: de R$ 67</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-10 bg-gray-50">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-xl font-bold text-center mb-2">Quem já fez o curso</h2>
+            <p class="text-gray-500 text-sm text-center mb-6">+800 alunos transformaram suas finanças</p>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">👩</div>
+                        <div>
+                            <p class="font-semibold text-sm">Maria S.</p>
+                            <p class="text-yellow-500 text-xs">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        "Eu tinha R$ 4.000 em dívidas no cartão e achava que nunca ia conseguir pagar. Em 2 meses seguindo o método, já quitei metade. O melhor investimento que já fiz."
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2">📍 São Paulo - SP</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">👨</div>
+                        <div>
+                            <p class="font-semibold text-sm">João P.</p>
+                            <p class="text-yellow-500 text-xs">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        "Sempre achei que finanças era coisa de rico. Ganho um salário mínimo e consegui juntar R$ 800 em 3 meses. O método é simples e realmente funciona pra quem ganha pouco."
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2">📍 Recife - PE</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">👩‍🦱</div>
+                        <div>
+                            <p class="font-semibold text-sm">Ana C.</p>
+                            <p class="text-yellow-500 text-xs">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        "O módulo de negociar dívidas mudou minha vida. Usei os scripts prontos e consegui 85% de desconto numa dívida antiga. Chorei de alívio."
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2">📍 Belo Horizonte - MG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia -->
+    <section class="py-10 bg-white">
+        <div class="max-w-lg mx-auto px-4 text-center">
+            <div class="bg-brand-light border-2 border-brand-green/20 rounded-2xl p-6">
+                <span class="text-5xl block mb-3">🛡️</span>
+                <h2 class="text-xl font-bold mb-2">Garantia Incondicional de 7 Dias</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Se em até 7 dias você achar que o curso não é pra você, devolvemos 100% do seu dinheiro. Basta enviar um e-mail. Sem perguntas, sem burocracia.
+                </p>
+                <p class="text-xs text-gray-400 font-medium">Você não tem nada a perder — exceto suas dívidas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-10 bg-gray-50">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-xl font-bold text-center mb-6">Dúvidas Frequentes</h2>
+            <div class="space-y-3">
+                <details class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm group">
+                    <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                        Preciso saber algo de finanças antes?
+                        <span class="text-brand-green text-lg group-open:hidden">+</span>
+                        <span class="text-brand-green text-lg hidden group-open:inline">−</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-3 leading-relaxed">Não! O curso foi feito para quem nunca estudou finanças. Tudo é explicado de forma simples, como se fosse uma conversa.</p>
+                </details>
+                <details class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm group">
+                    <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                        Quanto tempo por dia vou precisar?
+                        <span class="text-brand-green text-lg group-open:hidden">+</span>
+                        <span class="text-brand-green text-lg hidden group-open:inline">−</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-3 leading-relaxed">Menos de 15 minutos por dia. Os vídeos são curtos e você aplica no seu ritmo, direto do celular.</p>
+                </details>
+                <details class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm group">
+                    <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                        Funciona mesmo se eu ganhar pouco?
+                        <span class="text-brand-green text-lg group-open:hidden">+</span>
+                        <span class="text-brand-green text-lg hidden group-open:inline">−</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-3 leading-relaxed">Sim! O método foi criado especialmente para quem ganha até 2 salários mínimos. Não é sobre quanto você ganha, é sobre como você usa o que ganha.</p>
+                </details>
+                <details class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm group">
+                    <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                        Como acesso o conteúdo?
+                        <span class="text-brand-green text-lg group-open:hidden">+</span>
+                        <span class="text-brand-green text-lg hidden group-open:inline">−</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-3 leading-relaxed">Tudo pelo celular! Após a compra, você recebe o acesso por e-mail e WhatsApp. A área de membros funciona perfeitamente no navegador do seu celular.</p>
+                </details>
+                <details class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm group">
+                    <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                        Como funciona a garantia de 7 dias?
+                        <span class="text-brand-green text-lg group-open:hidden">+</span>
+                        <span class="text-brand-green text-lg hidden group-open:inline">−</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-3 leading-relaxed">É simples: se não gostar do curso por qualquer motivo, envie um e-mail em até 7 dias e devolvemos 100% do valor. Sem letras miúdas.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Último CTA -->
+    <section class="py-10 bg-white">
+        <div class="max-w-lg mx-auto px-4 text-center">
+            <h2 class="text-xl font-bold mb-3">Pronto para sair do vermelho?</h2>
+            <p class="text-gray-500 text-sm mb-6">Comece agora e veja resultado em 30 dias — ou pegue seu dinheiro de volta.</p>
+
+            <a href="checkout.html" class="block w-full bg-brand-cta hover:bg-green-600 text-white font-extrabold text-lg py-4 px-6 rounded-xl shadow-lg transition-all">
+                🔥 QUERO ACESSAR AGORA — R$ 97
+            </a>
+
+            <div class="flex items-center justify-center gap-4 mt-4 text-xs text-gray-400">
+                <span>🔒 Pagamento seguro</span>
+                <span>🛡️ 7 dias de garantia</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-center text-gray-400 text-xs">
+        <div class="max-w-lg mx-auto px-4 space-y-2">
+            <p class="font-bold text-white text-sm">Saia do Vermelho © 2026</p>
+            <p>Todos os direitos reservados.</p>
+            <div class="flex justify-center gap-4 text-gray-500">
+                <a href="#" class="hover:text-white transition">Termos de Uso</a>
+                <a href="#" class="hover:text-white transition">Política de Privacidade</a>
+                <a href="#" class="hover:text-white transition">Contato</a>
+            </div>
+            <p class="mt-4 text-gray-600">Este site não é afiliado ao Facebook/Meta. Resultados podem variar de pessoa para pessoa.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20curso%20Saia%20do%20Vermelho" target="_blank" rel="noopener" class="whatsapp-float bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+</body>
+</html>
