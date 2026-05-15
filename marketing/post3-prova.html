@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{width:1080px;height:1080px;overflow:hidden;font-family:'Inter','system-ui',sans-serif;background:linear-gradient(135deg,#0D0D0D 0%,#1A1A1A 100%);color:#fff;display:flex;align-items:center;justify-content:center}
+        .container{text-align:center;padding:60px;max-width:880px}
+        h1{font-size:56px;font-weight:900;line-height:1.15;margin-bottom:45px}
+        h1 span{color:#C07B5E}
+        .depoimentos{display:flex;flex-direction:column;gap:20px;text-align:left;margin-bottom:40px}
+        .dep{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 32px;border-radius:16px}
+        .dep .stars{color:#F59E0B;font-size:24px;margin-bottom:8px}
+        .dep p{font-size:22px;color:#ccc;line-height:1.45;font-style:italic}
+        .dep .nome{font-size:18px;color:#888;margin-top:10px;font-style:normal}
+        .garantia{display:inline-flex;align-items:center;gap:12px;background:rgba(192,123,94,0.1);border:2px solid rgba(192,123,94,0.3);padding:18px 36px;border-radius:50px;margin-top:20px}
+        .garantia span{font-size:40px}
+        .garantia p{font-size:22px;color:#C07B5E;font-weight:700}
+        .logo{position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:28px;color:#C07B5E;font-weight:700}
+    </style>
+</head>
+<body>
+    <span class="logo">💰 Saia do Vermelho</span>
+    <div class="container">
+        <h1>Quem fez o curso <span>saiu do vermelho</span></h1>
+        <div class="depoimentos">
+            <div class="dep"><div class="stars">★★★★★</div><p>"Eu tinha R$ 4.000 em dívidas. Em 2 meses quitei metade. O melhor investimento que já fiz."</p><p class="nome">Maria S. — São Paulo, SP</p></div>
+            <div class="dep"><div class="stars">★★★★★</div><p>"Ganho um salário mínimo e consegui juntar R$ 800 em 3 meses. Funciona pra quem ganha pouco."</p><p class="nome">João P. — Recife, PE</p></div>
+        </div>
+        <div class="garantia">
+            <span>🛡️</span>
+            <p>7 dias de garantia — se não gostar, devolvemos 100%</p>
+        </div>
+    </div>
+</body>
+</html>

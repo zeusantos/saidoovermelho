@@ -4,521 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de Membros | Saia do Vermelho em 30 Dias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: { green: '#16a34a', dark: '#14532d', light: '#f0fdf4' }
-                    }
+                        copper: { 50:'#FDF8F5', 100:'#F5E6DE', 200:'#E8C4B4', 300:'#D4A08B', 400:'#C07B5E', 500:'#A8634A', 600:'#8B4E3A', 700:'#6E3A2A', 800:'#4E261A', 900:'#2E140D' },
+                        dark: { 50:'#F5F5F5', 100:'#E5E5E5', 200:'#CCCCCC', 300:'#999999', 400:'#666666', 500:'#333333', 600:'#1A1A1A', 700:'#141414', 800:'#0D0D0D', 900:'#0A0A0A' }
+                    },
+                    fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] }
                 }
             }
         }
     </script>
+    <style>
+        .copper-gradient { background: linear-gradient(135deg, #C07B5E 0%, #D4A08B 50%, #C07B5E 100%); }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+<body class="bg-dark-800 text-gray-300 font-sans antialiased">
 
-    <!-- Tela de Login (mostrada se não tiver acesso) -->
+    <!-- Tela de Login -->
     <div id="tela-login" class="min-h-screen flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-lg border border-gray-100">
+        <div class="bg-dark-700 rounded-2xl p-6 max-w-sm w-full shadow-xl border border-dark-600">
             <div class="text-center mb-6">
-                <span class="text-5xl block mb-3">🔐</span>
-                <h1 class="text-xl font-extrabold text-gray-900">Área de Membros</h1>
-                <p class="text-sm text-gray-500 mt-1">Saia do Vermelho em 30 Dias</p>
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full copper-gradient flex items-center justify-center"><span class="text-3xl">💰</span></div>
+                <h1 class="text-xl font-extrabold text-white">Área de Membros</h1>
+                <p class="text-sm text-gray-400 mt-1">Saia do Vermelho em 30 Dias</p>
             </div>
-
-            <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-4 hidden" id="erro-login">
-                <p class="text-xs text-red-700 font-medium">E-mail não encontrado. Verifique se você já comprou o curso.</p>
-            </div>
-
+            <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-4 hidden" id="erro-login"><p class="text-xs text-red-400 font-medium">E-mail não encontrado. Verifique se você já comprou o curso.</p></div>
             <form onsubmit="fazerLogin(event)" class="space-y-3">
-                <div>
-                    <label class="text-xs font-semibold text-gray-700">E-mail da compra</label>
-                    <input type="email" id="email-login" placeholder="seu@email.com" class="w-full mt-1 px-3 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green" required>
-                </div>
-                <div>
-                    <label class="text-xs font-semibold text-gray-700">Senha de acesso</label>
-                    <input type="password" id="senha-login" placeholder="••••••" class="w-full mt-1 px-3 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green" required>
-                </div>
-                <button type="submit" class="w-full bg-brand-green hover:bg-brand-dark text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition-all">
-                    ENTRAR NA ÁREA DE MEMBROS
-                </button>
+                <div><label class="text-xs font-semibold text-gray-400">E-mail da compra</label><input type="email" id="email-login" placeholder="seu@email.com" class="w-full mt-1 px-3 py-3 bg-dark-800 border border-dark-600 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-copper-500/30 focus:border-copper-500/30 transition" required></div>
+                <div><label class="text-xs font-semibold text-gray-400">Senha de acesso</label><input type="password" id="senha-login" placeholder="••••••" class="w-full mt-1 px-3 py-3 bg-dark-800 border border-dark-600 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-copper-500/30 focus:border-copper-500/30 transition" required></div>
+                <button type="submit" class="w-full copper-gradient hover:opacity-90 text-white font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all">ENTRAR NA ÁREA DE MEMBROS</button>
             </form>
-
-            <div class="border-t border-gray-100 mt-4 pt-4 text-center">
-                <p class="text-xs text-gray-400 mb-2">Primeira vez aqui?</p>
-                <button onclick="simularPrimeiroAcesso()" class="text-xs font-bold text-brand-green hover:underline">
-                    👋 Simular primeiro acesso (após compra)
-                </button>
+            <div class="border-t border-dark-600 mt-4 pt-4 text-center">
+                <p class="text-xs text-gray-500 mb-2">Primeira vez aqui?</p>
+                <button onclick="simularPrimeiroAcesso()" class="text-xs font-bold text-copper-400 hover:text-copper-300 transition">👋 Simular primeiro acesso</button>
             </div>
-
-            <p class="text-xs text-gray-400 text-center mt-4">
-                <a href="index.html" class="hover:underline">← Voltar para o site</a>
-            </p>
+            <p class="text-xs text-gray-500 text-center mt-4"><a href="index.html" class="hover:text-gray-300 transition">← Voltar para o site</a></p>
         </div>
     </div>
 
-    <!-- Área de Membros (mostrada após login) -->
+    <!-- Área de Membros -->
     <div id="tela-membros" class="hidden min-h-screen">
-
-        <!-- Header -->
-        <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+        <header class="bg-dark-700 border-b border-dark-600 sticky top-0 z-30">
             <div class="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl">💰</span>
-                    <span class="font-bold text-brand-dark text-sm">Área de Membros</span>
-                </div>
-                <button onclick="sair()" class="text-xs text-red-500 font-semibold hover:underline">Sair</button>
+                <div class="flex items-center gap-2"><span class="text-xl">💰</span><span class="font-bold text-white text-sm">Área de Membros</span></div>
+                <button onclick="sair()" class="text-xs text-red-400 font-semibold hover:text-red-300 transition">Sair</button>
             </div>
         </header>
-
         <main class="max-w-lg mx-auto px-4 py-6">
-
-            <!-- Boas-vindas + Progresso -->
-            <div class="bg-gradient-to-r from-brand-dark to-brand-green rounded-2xl p-5 text-white mb-6">
+            <div class="copper-gradient rounded-2xl p-5 text-white mb-6 shadow-lg">
                 <p class="text-sm opacity-80">Bem-vindo(a) de volta!</p>
                 <p class="text-xl font-extrabold" id="nome-aluno">Aluno</p>
-                <p class="text-xs opacity-70 mt-1">Compra realizada em <span id="data-compra">--</span></p>
-
-                <!-- Barra de progresso -->
-                <div class="mt-4">
-                    <div class="flex justify-between text-xs mb-1">
-                        <span>Seu progresso</span>
-                        <span id="pct-progresso" class="font-bold">0%</span>
-                    </div>
-                    <div class="h-2 bg-white/20 rounded-full overflow-hidden">
-                        <div id="barra-progresso" class="h-full bg-white rounded-full transition-all duration-500" style="width: 0%"></div>
-                    </div>
-                </div>
+                <p class="text-xs opacity-60 mt-1">Compra realizada em <span id="data-compra">--</span></p>
+                <p class="text-xs opacity-70 mt-3">📚 Todo o conteúdo do curso está liberado abaixo. Estude no seu ritmo.</p>
             </div>
 
-            <!-- Manual Completo -->
-            <a href="recursos/curso-completo-financas.html" target="_blank" class="block bg-amber-50 hover:bg-amber-100 border-2 border-amber-300 rounded-xl p-4 mb-4 transition">
+            <a href="recursos/curso-completo-financas.html" target="_blank" class="block bg-copper-500/10 hover:bg-copper-500/20 border border-copper-500/20 rounded-xl p-4 mb-4 transition">
                 <div class="flex items-center gap-3">
-                    <span class="text-3xl">📚</span>
-                    <div class="flex-1">
-                        <p class="font-bold text-gray-900 text-sm">Manual Completo do Curso</p>
-                        <p class="text-xs text-gray-500">Todos os capítulos, exercícios e plano de 30 dias em um só lugar. Leia no celular ou imprima.</p>
-                    </div>
-                    <span class="text-amber-600 font-bold text-sm">Abrir →</span>
+                    <div class="w-10 h-10 bg-copper-500/20 rounded-full flex items-center justify-center flex-shrink-0"><span class="text-xl">📚</span></div>
+                    <div class="flex-1"><p class="font-bold text-white text-sm">Manual Completo do Curso</p><p class="text-xs text-gray-400">Todos os capítulos, exercícios e plano de 30 dias.</p></div>
+                    <span class="text-copper-400 font-bold text-sm">Abrir →</span>
                 </div>
             </a>
 
-            <!-- Módulo 1: Raio-X Financeiro -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
-                <button onclick="toggleModulo('mod1')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-gray-50 transition">
-                    <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-brand-green font-bold text-sm">01</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Raio-X Financeiro Sem Planilha</h3>
-                        <p class="text-xs text-gray-500">3 vídeos · 1 PDF</p>
-                    </div>
-                    <span id="icon-mod1" class="text-gray-400 transition-transform">▼</span>
-                </button>
-                <div id="mod1" class="hidden border-t border-gray-100">
-                    <div class="p-4 space-y-3">
-                        <!-- Aula 1.1 -->
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod1-a1')">
-                            <input type="checkbox" id="mod1-a1" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 1: Por que seu dinheiro some (e como parar isso)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 8 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <!-- Aula 1.2 -->
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod1-a2')">
-                            <input type="checkbox" id="mod1-a2" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 2: O método do bloco de notas (passo a passo)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 12 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <!-- Aula 1.3 -->
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod1-a3')">
-                            <input type="checkbox" id="mod1-a3" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 3: Identificando os 3 ralos do seu dinheiro</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 10 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <!-- PDF -->
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Diário Financeiro de 30 Dias (PDF)</p>
-                                <p class="text-xs text-gray-400">Imprima ou use no celular</p>
-                            </div>
-                            <a href="recursos/diario-financeiro-30-dias.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Módulo 2: Negocie Dívidas -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
-                <button onclick="toggleModulo('mod2')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-gray-50 transition">
-                    <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-brand-green font-bold text-sm">02</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Negocie Suas Dívidas Como um Profissional</h3>
-                        <p class="text-xs text-gray-500">4 vídeos · 2 PDFs</p>
-                    </div>
-                    <span id="icon-mod2" class="text-gray-400 transition-transform">▼</span>
-                </button>
-                <div id="mod2" class="hidden border-t border-gray-100">
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod2-a1')">
-                            <input type="checkbox" id="mod2-a1" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 1: Como descobrir todas as suas dívidas</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 7 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod2-a2')">
-                            <input type="checkbox" id="mod2-a2" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 2: As 3 plataformas que os bancos não contam</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 15 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod2-a3')">
-                            <input type="checkbox" id="mod2-a3" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 3: O script pronto para negociar (WhatsApp e telefone)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 11 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod2-a4')">
-                            <input type="checkbox" id="mod2-a4" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 4: Feirão limpa nome — o guia definitivo</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 14 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">PDF: 5 Scripts Prontos para Negociar Cada Tipo de Dívida</p>
-                                <p class="text-xs text-gray-400">WhatsApp · Telefone · E-mail · Presencial · App</p>
-                            </div>
-                            <a href="recursos/scripts-negociacao-dividas.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">PDF: Lista de Canais Oficiais de Negociação por Banco</p>
-                                <p class="text-xs text-gray-400">Atualizado 2026</p>
-                            </div>
-                            <a href="recursos/canais-oficiais-negociacao.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Módulo 3: Gaste Menos -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
-                <button onclick="toggleModulo('mod3')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-gray-50 transition">
-                    <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-brand-green font-bold text-sm">03</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Gaste Menos Sem Deixar de Viver</h3>
-                        <p class="text-xs text-gray-500">3 vídeos · 1 PDF</p>
-                    </div>
-                    <span id="icon-mod3" class="text-gray-400 transition-transform">▼</span>
-                </button>
-                <div id="mod3" class="hidden border-t border-gray-100">
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod3-a1')">
-                            <input type="checkbox" id="mod3-a1" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 1: A técnica dos 3 Cortes Inteligentes</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 9 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod3-a2')">
-                            <input type="checkbox" id="mod3-a2" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 2: Supermercado, delivery e assinaturas — quanto você perde</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 13 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod3-a3')">
-                            <input type="checkbox" id="mod3-a3" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 3: O orçamento que cabe no seu bolso (modelo pronto)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 10 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Checklist: 30 Gastos que Dá para Cortar Hoje (PDF)</p>
-                            </div>
-                            <a href="recursos/checklist-30-cortes.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Módulo 4: Reserva de Emergência -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
-                <button onclick="toggleModulo('mod4')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-gray-50 transition">
-                    <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-brand-green font-bold text-sm">04</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Sua Primeira Reserva de Emergência</h3>
-                        <p class="text-xs text-gray-500">4 vídeos · 1 PDF</p>
-                    </div>
-                    <span id="icon-mod4" class="text-gray-400 transition-transform">▼</span>
-                </button>
-                <div id="mod4" class="hidden border-t border-gray-100">
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod4-a1')">
-                            <input type="checkbox" id="mod4-a1" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 1: Quanto você precisa juntar (e por que começa com R$ 1.000)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 8 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod4-a2')">
-                            <input type="checkbox" id="mod4-a2" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 2: O cofrinho digital que rende mais que a poupança</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 11 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod4-a3')">
-                            <input type="checkbox" id="mod4-a3" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 3: O método do 'primeiro boleto' que te obriga a guardar</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 7 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod4-a4')">
-                            <input type="checkbox" id="mod4-a4" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 4: Os 3 erros que fazem você desistir (e como evitar)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 9 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Calculadora de Reserva de Emergência (PDF Interativo)</p>
-                            </div>
-                            <a href="recursos/calculadora-reserva.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Módulo 5: Renda Extra -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
-                <button onclick="toggleModulo('mod5')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-gray-50 transition">
-                    <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center flex-shrink-0">
-                        <span class="text-brand-green font-bold text-sm">05</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Renda Extra com o que Você Já Sabe</h3>
-                        <p class="text-xs text-gray-500">3 vídeos · 1 PDF</p>
-                    </div>
-                    <span id="icon-mod5" class="text-gray-400 transition-transform">▼</span>
-                </button>
-                <div id="mod5" class="hidden border-t border-gray-100">
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod5-a1')">
-                            <input type="checkbox" id="mod5-a1" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 1: 5 formas de fazer dinheiro esse mês só com o celular</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 12 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod5-a2')">
-                            <input type="checkbox" id="mod5-a2" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 2: Como transformar hobby em dinheiro (doces, costura, faxina)</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 14 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition" onclick="marcarAula(this, 'mod5-a3')">
-                            <input type="checkbox" id="mod5-a3" onchange="atualizarProgresso()" class="w-4 h-4 text-brand-green rounded focus:ring-brand-green">
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Aula 3: O plano de 30 dias para sua primeira renda extra</p>
-                                <p class="text-xs text-gray-400">📱 Vídeo · 10 min</p>
-                            </div>
-                            <span class="text-lg">▶️</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-brand-light/50">
-                            <span class="text-xl">📄</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Guia: 50 Ideias de Renda Extra para Quem Ganha Pouco (PDF)</p>
-                            </div>
-                            <a href="recursos/guia-50-renda-extra.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="modulos-container"></div>
 
             <!-- Bônus -->
-            <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border border-yellow-200 overflow-hidden mb-6">
-                <button onclick="toggleModulo('bonus')" class="w-full p-4 flex items-center gap-3 text-left">
-                    <span class="text-2xl">🎁</span>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-gray-900 text-sm">Bônus Exclusivos</h3>
-                        <p class="text-xs text-gray-500">3 materiais extras</p>
-                    </div>
-                    <span id="icon-bonus" class="text-gray-400 transition-transform">▼</span>
+            <div class="bg-dark-700 rounded-xl border border-dark-600 overflow-hidden mb-4">
+                <button onclick="toggleModulo('bonus')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-dark-600 transition">
+                    <span class="text-2xl">🎁</span><div class="flex-1"><h3 class="font-bold text-white text-sm">Bônus Exclusivos</h3><p class="text-xs text-gray-400">3 materiais extras</p></div>
+                    <span id="icon-bonus" class="text-gray-400 transition-transform text-sm">▼</span>
                 </button>
-                <div id="bonus" class="hidden border-t border-yellow-200">
+                <div id="bonus" class="hidden border-t border-dark-600">
                     <div class="p-4 space-y-3">
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/60">
-                            <span class="text-2xl">📊</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Calculadora de Gastos no Celular (App)</p>
-                                <p class="text-xs text-gray-400">Link para adicionar à tela inicial</p>
-                            </div>
-                            <a href="recursos/diario-financeiro-30-dias.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Acessar</a>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/60">
-                            <span class="text-2xl">📋</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Scripts Prontos para Negociar Dívidas</p>
-                            </div>
-                            <a href="recursos/scripts-negociacao-dividas.html" target="_blank" class="text-xs font-bold text-brand-green hover:underline">Abrir PDF</a>
-                        </div>
-                        <div class="flex items-center gap-3 p-2 rounded-lg bg-white/60">
-                            <span class="text-2xl">👥</span>
-                            <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-gray-900">Grupo Exclusivo no WhatsApp</p>
-                                <p class="text-xs text-gray-400">30 dias de acompanhamento</p>
-                            </div>
-                            <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20entrar%20no%20grupo%20de%20alunos" target="_blank" rel="noopener" class="text-xs font-bold text-brand-green hover:underline">Entrar</a>
-                        </div>
+                        <a href="recursos/diario-financeiro-30-dias.html" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-dark-600 transition"><span class="text-2xl">📊</span><div class="flex-1"><p class="text-sm font-medium text-white">Calculadora de Gastos</p></div><span class="text-xs font-bold text-copper-400">Acessar</span></a>
+                        <a href="recursos/scripts-negociacao-dividas.html" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-dark-600 transition"><span class="text-2xl">📋</span><div class="flex-1"><p class="text-sm font-medium text-white">Scripts para Negociar Dívidas</p></div><span class="text-xs font-bold text-copper-400">Abrir</span></a>
+                        <a href="https://wa.me/5581999733696" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 rounded-xl hover:bg-dark-600 transition"><span class="text-2xl">👥</span><div class="flex-1"><p class="text-sm font-medium text-white">Grupo Exclusivo no WhatsApp</p></div><span class="text-xs font-bold text-copper-400">Entrar</span></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Suporte -->
-            <div class="text-center mb-8">
-                <p class="text-sm text-gray-500">Precisa de ajuda?</p>
-                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-brand-green font-bold text-sm hover:underline mt-1">
-                    💬 Falar no WhatsApp
-                </a>
-            </div>
-
+            <div class="text-center mb-8"><p class="text-sm text-gray-400">Precisa de ajuda?</p><a href="https://wa.me/5581999733696" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-copper-400 font-bold text-sm hover:text-copper-300 transition mt-1">💬 Falar no WhatsApp</a></div>
         </main>
     </div>
 
     <script>
-        // ---- Login ----
-        function fazerLogin(e) {
-            e.preventDefault();
-            const email = document.getElementById('email-login').value.trim();
-            if (email) {
-                localStorage.setItem('aluno_acesso', 'true');
-                localStorage.setItem('aluno_email', email);
-                localStorage.setItem('aluno_nome', email.split('@')[0]);
-                localStorage.setItem('data_compra', new Date().toLocaleDateString('pt-BR'));
-                mostrarAreaMembros();
-            }
-        }
+        const MODULOS = [
+            {id:'mod1',num:'01',title:'O Despertar',desc:'Mentalidade e Diagnóstico Financeiro',conteudo:[{title:'📖 Ler Capítulo 1: O Despertar',desc:'Os 3 ralos financeiros, mentalidade, O Desafio dos 7 Dias',href:'recursos/curso-completo-financas.html#mod1'}]},
+            {id:'mod2',num:'02',title:'O Mapa da Mina',desc:'Orçamento sem Sofrimento',conteudo:[{title:'📖 Ler Capítulo 2: O Mapa da Mina',desc:'Método 50-30-20 brasileiro, gastos sazonais, pague-se primeiro',href:'recursos/curso-completo-financas.html#mod2'},{title:'📊 Diário Financeiro de 30 Dias',desc:'Calculadora de lançamentos + tabela semanal imprimível',href:'recursos/diario-financeiro-30-dias.html'}]},
+            {id:'mod3',num:'03',title:'O Escudo Financeiro',desc:'Dívidas e Reserva de Emergência',conteudo:[{title:'📖 Ler Capítulo 3: O Escudo Financeiro',desc:'Anatomia da dívida, Bola de Neve, scripts de negociação, reserva',href:'recursos/curso-completo-financas.html#mod3'},{title:'📋 Scripts Prontos para Negociar Dívidas',desc:'5 scripts copiáveis para WhatsApp, telefone e e-mail',href:'recursos/scripts-negociacao-dividas.html'},{title:'🛡️ Calculadora de Reserva de Emergência',desc:'Simulador interativo + projeção com juros compostos',href:'recursos/calculadora-reserva.html'},{title:'🏦 Canais Oficiais de Negociação por Banco',desc:'Lista com 24 bancos e plataformas, busca e links',href:'recursos/canais-oficiais-negociacao.html'}]},
+            {id:'mod4',num:'04',title:'O Dinheiro Trabalhando',desc:'Investimentos para Iniciantes',conteudo:[{title:'📖 Ler Capítulo 4: O Dinheiro Trabalhando',desc:'Inflação, juros compostos, Tesouro Selic, CDB, primeiro aporte',href:'recursos/curso-completo-financas.html#mod4'}]},
+            {id:'mod5',num:'05',title:'Liberdade e Futuro',desc:'Metas e Disciplina de Longo Prazo',conteudo:[{title:'📖 Ler Capítulo 5: Liberdade e Futuro',desc:'Metas SMART, 4 potes, automação, ritual de 5 minutos',href:'recursos/curso-completo-financas.html#mod5'},{title:'💡 50 Ideias de Renda Extra',desc:'Calculadora de ganhos + ranking das melhores ideias',href:'recursos/guia-50-renda-extra.html'},{title:'✂️ 30 Gastos que Dá para Cortar Hoje',desc:'Contador de economia potencial (até R$ 400/mês)',href:'recursos/checklist-30-cortes.html'}]}
+        ];
 
-        function simularPrimeiroAcesso() {
-            localStorage.setItem('aluno_acesso', 'true');
-            localStorage.setItem('aluno_email', 'aluno@email.com');
-            localStorage.setItem('aluno_nome', 'Aluno');
-            localStorage.setItem('data_compra', new Date().toLocaleDateString('pt-BR'));
-            mostrarAreaMembros();
-        }
-
-        function sair() {
-            localStorage.removeItem('aluno_acesso');
-            location.reload();
-        }
-
-        // ---- Mostrar área de membros ----
-        function mostrarAreaMembros() {
-            document.getElementById('tela-login').classList.add('hidden');
-            document.getElementById('tela-membros').classList.remove('hidden');
-            document.getElementById('nome-aluno').textContent = localStorage.getItem('aluno_nome') || 'Aluno';
-            document.getElementById('data-compra').textContent = localStorage.getItem('data_compra') || '--';
-            carregarProgresso();
-        }
-
-        // ---- Toggle módulos ----
-        function toggleModulo(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById('icon-' + id);
-            el.classList.toggle('hidden');
-            if (icon) {
-                icon.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-        }
-
-        // ---- Marcar aula ----
-        function marcarAula(container, checkboxId) {
-            const cb = document.getElementById(checkboxId);
-            if (cb) {
-                cb.checked = !cb.checked;
-                atualizarProgresso();
-            }
-        }
-
-        // ---- Atualizar progresso ----
-        function atualizarProgresso() {
-            const allCbs = document.querySelectorAll('#tela-membros input[type="checkbox"]');
-            const checked = document.querySelectorAll('#tela-membros input[type="checkbox"]:checked');
-            const pct = allCbs.length > 0 ? Math.round((checked.length / allCbs.length) * 100) : 0;
-
-            document.getElementById('pct-progresso').textContent = pct + '%';
-            document.getElementById('barra-progresso').style.width = pct + '%';
-
-            salvarProgresso();
-        }
-
-        function salvarProgresso() {
-            const checked = {};
-            document.querySelectorAll('#tela-membros input[type="checkbox"]').forEach(cb => {
-                checked[cb.id] = cb.checked;
+        function buildModulos() {
+            let html = '';
+            MODULOS.forEach(m => {
+                html += `<div class="bg-dark-700 rounded-xl border border-dark-600 overflow-hidden mb-3">
+                    <button onclick="toggleModulo('${m.id}')" class="w-full p-4 flex items-center gap-3 text-left hover:bg-dark-600 transition">
+                        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center flex-shrink-0 ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">${m.num}</span></div>
+                        <div class="flex-1"><h3 class="font-bold text-white text-sm">${m.title}</h3><p class="text-xs text-gray-400">${m.desc}</p></div>
+                        <span id="icon-${m.id}" class="text-gray-400 transition-transform text-sm">▼</span>
+                    </button>
+                    <div id="${m.id}" class="hidden border-t border-dark-600"><div class="p-4 space-y-2">`;
+                m.conteudo.forEach(c => {
+                    html += `<a href="${c.href}" target="_blank" class="flex items-center gap-3 p-3 rounded-lg bg-copper-500/5 hover:bg-copper-500/10 transition">
+                        <div class="flex-1"><p class="text-sm font-medium text-white">${c.title}</p><p class="text-xs text-gray-400 mt-0.5">${c.desc}</p></div>
+                        <span class="text-xs font-bold text-copper-400">Abrir →</span></a>`;
+                });
+                html += `</div></div></div>`;
             });
-            localStorage.setItem('progresso_aulas', JSON.stringify(checked));
+            document.getElementById('modulos-container').innerHTML = html;
         }
+        buildModulos();
 
-        function carregarProgresso() {
-            const saved = JSON.parse(localStorage.getItem('progresso_aulas') || '{}');
-            Object.entries(saved).forEach(([id, checked]) => {
-                const cb = document.getElementById(id);
-                if (cb && checked) cb.checked = true;
-            });
-            atualizarProgresso();
-        }
-
-        // ---- Init ----
-        if (localStorage.getItem('aluno_acesso') === 'true') {
-            mostrarAreaMembros();
-        }
+        function fazerLogin(e){ e.preventDefault(); const email=document.getElementById('email-login').value.trim(); if(email){ localStorage.setItem('aluno_acesso','true'); localStorage.setItem('aluno_email',email); localStorage.setItem('aluno_nome',email.split('@')[0]); localStorage.setItem('data_compra',new Date().toLocaleDateString('pt-BR')); mostrarAreaMembros(); } }
+        function simularPrimeiroAcesso(){ localStorage.setItem('aluno_acesso','true'); localStorage.setItem('aluno_email','aluno@email.com'); localStorage.setItem('aluno_nome','Aluno'); localStorage.setItem('data_compra',new Date().toLocaleDateString('pt-BR')); mostrarAreaMembros(); }
+        function sair(){ localStorage.removeItem('aluno_acesso'); location.reload(); }
+        function mostrarAreaMembros(){ document.getElementById('tela-login').classList.add('hidden'); document.getElementById('tela-membros').classList.remove('hidden'); document.getElementById('nome-aluno').textContent=localStorage.getItem('aluno_nome')||'Aluno'; document.getElementById('data-compra').textContent=localStorage.getItem('data_compra')||'--'; }
+        function toggleModulo(id){ const el=document.getElementById(id); const icon=document.getElementById('icon-'+id); el.classList.toggle('hidden'); if(icon) icon.style.transform=el.classList.contains('hidden')?'rotate(0deg)':'rotate(180deg)'; }
+        if(localStorage.getItem('aluno_acesso')==='true'){mostrarAreaMembros();}
     </script>
-
 </body>
 </html>

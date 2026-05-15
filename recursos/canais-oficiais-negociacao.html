@@ -1,102 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canais Oficiais de Negociação por Banco | Saia do Vermelho</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canais Negociação por Banco | Saia do Vermelho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>@media print { body { background: white !important; } .no-print { display: none !important; } }</style>
+    <script>tailwind.config={theme:{extend:{colors:{copper:{50:'#FDF8F5',100:'#F5E6DE',200:'#E8C4B4',300:'#D4A08B',400:'#C07B5E',500:'#A8634A',600:'#8B4E3A',700:'#6E3A2A',800:'#4E261A',900:'#2E140D'},dark:{800:'#0D0D0D',700:'#141414',600:'#1A1A1A',500:'#333333',400:'#666666'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+    <style>.copper-gradient{background:linear-gradient(135deg,#C07B5E,#D4A08B,#C07B5E)}@media print{body{background:#0D0D0D!important}.no-print{display:none!important}}</style>
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="max-w-2xl mx-auto p-4 print:p-0">
-        <div class="bg-gradient-to-r from-green-700 to-green-500 text-white rounded-2xl p-8 mb-6 text-center no-print">
-            <h1 class="text-3xl font-extrabold mb-2">🏦 Canais Oficiais de Negociação por Banco</h1>
-            <p class="text-green-100">Lista atualizada com os canais certos para renegociar cada dívida</p>
-            <button onclick="window.print()" class="mt-4 bg-white text-green-700 font-bold px-6 py-2 rounded-xl hover:bg-green-50 transition">🖨️ Imprimir / Salvar como PDF</button>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h1 class="text-2xl font-extrabold text-gray-900 mb-4 hidden print:block">🏦 Canais Oficiais de Negociação por Banco</h1>
+<body class="bg-dark-800 text-gray-300 font-sans antialiased">
+<div class="max-w-2xl mx-auto p-4">
+<div class="copper-gradient text-white rounded-2xl p-6 mb-6 text-center no-print shadow-lg"><h1 class="text-2xl font-extrabold mb-1">🏦 Canais de Negociação por Banco</h1><p class="text-white/80 text-sm">Lista atualizada com os canais certos para cada dívida</p><button onclick="window.print()" class="mt-4 bg-white text-copper-600 font-bold px-5 py-2 rounded-xl hover:bg-copper-50 transition text-sm">🖨️ Imprimir</button></div>
 
-            <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mb-6">
-                <p class="font-bold text-red-800 text-sm mb-1">🚨 CUIDADO COM GOLPES</p>
-                <p class="text-red-700 text-sm">Nunca pague por um serviço de "limpar nome". Negociar dívidas é GRÁTIS. Use apenas os canais oficiais listados abaixo.</p>
-            </div>
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600">
+    <div class="bg-red-500/10 border-l-4 border-red-500 p-4 rounded-r-lg mb-6"><p class="font-bold text-red-400 text-sm">🚨 CUIDADO COM GOLPES</p><p class="text-red-400/70 text-xs">Nunca pague por "limpar nome". Negociar dívidas é GRÁTIS.</p></div>
+    <div class="mb-6 no-print"><input type="text" id="busca" placeholder="🔍 Buscar banco ou plataforma..." oninput="filtrarBancos()" class="w-full px-4 py-3 bg-dark-800 border border-dark-600 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div>
+    <div id="bancos-container" class="space-y-6"></div>
+</div></div>
 
-            <div class="space-y-4">
-                <!-- Bancos Tradicionais -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-blue-900 text-white p-4"><h2 class="font-extrabold">🏛️ Bancos Tradicionais</h2></div>
-                    <table class="w-full text-sm">
-                        <thead><tr class="bg-gray-100"><th class="p-3 text-left">Banco</th><th class="p-3 text-left">Canal de Renegociação</th><th class="p-3 text-left">Site / Telefone</th></tr></thead>
-                        <tbody>
-                            <tr class="border-t"><td class="p-3 font-bold">Banco do Brasil</td><td class="p-3">App BB > Menu > Renegociação</td><td class="p-3">4004-0001 / 0800-729-0001</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Caixa Econômica</td><td class="p-3">App Caixa > Negociar Dívidas</td><td class="p-3">4004-0104 / 0800-104-0104</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Itaú</td><td class="p-3">App Itaú > Soluções de Dívidas</td><td class="p-3">4004-4828 / 0800-727-4828</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Bradesco</td><td class="p-3">App Bradesco > Acordos</td><td class="p-3">0800-704-8383</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Santander</td><td class="p-3">App Santander > Negociação Online</td><td class="p-3">4004-3535 / 0800-702-3535</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+<script>
+const secoes=[{titulo:'🏛️ Bancos Tradicionais',cor:'#C07B5E',bancos:[{nome:'Banco do Brasil',canal:'App BB > Menu > Renegociação',contato:'4004-0001',site:'https://bb.com.br'},{nome:'Caixa Econômica',canal:'App Caixa > Negociar Dívidas',contato:'4004-0104',site:'https://caixa.gov.br'},{nome:'Itaú',canal:'App Itaú > Soluções de Dívidas',contato:'4004-4828',site:'https://itau.com.br'},{nome:'Bradesco',canal:'App Bradesco > Acordos',contato:'0800-704-8383',site:'https://bradesco.com.br'},{nome:'Santander',canal:'App Santander > Negociação Online',contato:'4004-3535',site:'https://santander.com.br'}]},{titulo:'📱 Bancos Digitais',cor:'#D4A08B',bancos:[{nome:'Nubank',canal:'App Nubank > Chat > Negociar',contato:'0800-591-2117',site:'https://nubank.com.br'},{nome:'Inter',canal:'App Inter > Empréstimos > Negociar',contato:'3003-4070',site:'https://bancointer.com.br'},{nome:'C6 Bank',canal:'App C6 > Atendimento',contato:'3003-6116',site:'https://c6bank.com.br'},{nome:'PicPay',canal:'App PicPay > Carteira > Dívidas',contato:'0800-025-8000',site:'https://picpay.com'},{nome:'Mercado Pago',canal:'App MP > Crédito > Negociar',contato:'0800-878-3334',site:'https://mercadopago.com.br'},{nome:'Next',canal:'App Next > Ajuda',contato:'0800-275-6398',site:'https://next.b.br'},{nome:'Digio',canal:'App Digio > Chat',contato:'0800-725-3444',site:'https://digio.com.br'},{nome:'PagBank',canal:'App PagBank > Empréstimo',contato:'4003-1775',site:'https://pagbank.com.br'}]},{titulo:'🏪 Varejistas / Cartões de Loja',cor:'#8B6E2E',bancos:[{nome:'Casas Bahia / Bradescard',canal:'App Bradescard > Negociação',contato:'0800-727-9966',site:'https://casasbahia.com.br'},{nome:'Magazine Luiza / Luizacred',canal:'App Magalu > Cartão',contato:'0800-773-3838',site:'https://magazineluiza.com.br'},{nome:'Carrefour / Atacadão',canal:'App Carrefour > Cartão',contato:'3004-4055',site:'https://carrefour.com.br'},{nome:'Renner / Realize',canal:'App Realize > Contrato',contato:'3004-5065',site:'https://lojasrenner.com.br'},{nome:'C&A Pay',canal:'App C&A Pay > Ajuda',contato:'0800-701-2020',site:'https://cea.com.br'}]},{titulo:'🔍 Plataformas Multibanco',cor:'#6E3A2A',bancos:[{nome:'Serasa Limpa Nome',canal:'Site serasa.com.br/limpa-nome ou App',contato:'0800-591-1223',site:'https://serasa.com.br/limpa-nome'},{nome:'Feirão Limpa Nome',canal:'Site feiraolimpanome.com.br',contato:'',site:'https://feiraolimpanome.com.br'},{nome:'Registrato (Banco Central)',canal:'Site bcb.gov.br > Registrato',contato:'',site:'https://bcb.gov.br/cidadaniafinanceira/registrato'},{nome:'Consumidor.gov.br',canal:'Reclamação formal. Resolução em 7 dias.',contato:'',site:'https://consumidor.gov.br'},{nome:'Procon',canal:'Site Procon estadual > Reclamação',contato:'151',site:'https://procon.sp.gov.br'}]}];
 
-                <!-- Bancos Digitais -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-purple-900 text-white p-4"><h2 class="font-extrabold">📱 Bancos Digitais</h2></div>
-                    <table class="w-full text-sm">
-                        <thead><tr class="bg-gray-100"><th class="p-3 text-left">Banco</th><th class="p-3 text-left">Canal de Renegociação</th><th class="p-3 text-left">Site / Telefone</th></tr></thead>
-                        <tbody>
-                            <tr class="border-t"><td class="p-3 font-bold">Nubank</td><td class="p-3">App Nubank > Chat > Negociar Fatura</td><td class="p-3">0800-591-2117</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Inter</td><td class="p-3">App Inter > Empréstimos > Negociar</td><td class="p-3">3003-4070</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">C6 Bank</td><td class="p-3">App C6 > Atendimento > Renegociação</td><td class="p-3">3003-6116</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">PicPay</td><td class="p-3">App PicPay > Carteira > Minhas Dívidas</td><td class="p-3">0800-025-8000</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Mercado Pago</td><td class="p-3">App Mercado Pago > Crédito > Negociar</td><td class="p-3">0800-878-3334</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Plataformas de Negociação -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-green-800 text-white p-4"><h2 class="font-extrabold">🔍 Plataformas de Negociação (Multibanco)</h2></div>
-                    <table class="w-full text-sm">
-                        <thead><tr class="bg-gray-100"><th class="p-3 text-left">Plataforma</th><th class="p-3 text-left">Como Acessar</th><th class="p-3 text-left">Cobertura</th></tr></thead>
-                        <tbody>
-                            <tr class="border-t"><td class="p-3 font-bold">Serasa Limpa Nome</td><td class="p-3">serasa.com.br ou app Serasa</td><td class="p-3">Todos os bancos e varejistas</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Acordo Certo</td><td class="p-3">acordocerto.com.br</td><td class="p-3">Itaú, Bradesco, Santander, Casas Bahia</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Quero Quitar</td><td class="p-3">queroquitar.com.br</td><td class="p-3">Vários bancos e lojas</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Registrato (Banco Central)</td><td class="p-3">registrato.bcb.gov.br</td><td class="p-3">Relatório completo de dívidas no seu CPF</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Serviços e Varejo -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-orange-800 text-white p-4"><h2 class="font-extrabold">🏪 Serviços e Varejo</h2></div>
-                    <table class="w-full text-sm">
-                        <thead><tr class="bg-gray-100"><th class="p-3 text-left">Empresa</th><th class="p-3 text-left">Canal de Renegociação</th><th class="p-3 text-left">Contato</th></tr></thead>
-                        <tbody>
-                            <tr class="border-t"><td class="p-3 font-bold">Vivo</td><td class="p-3">App Vivo > Minha Conta > Negociar</td><td class="p-3">*8486 / 0800-773-8000</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Claro</td><td class="p-3">App Claro > Faturas > Acordo</td><td class="p-3">*1052 / 0800-704-3161</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Tim</td><td class="p-3">App Tim > Débitos > Negociar</td><td class="p-3">*144 / 0800-741-4141</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Enel</td><td class="p-3">App Enel > Segunda Via > Negociar</td><td class="p-3">0800-727-2120</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Sabesp</td><td class="p-3">Agência virtual > Negociação de Débitos</td><td class="p-3">0800-055-0195</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Casas Bahia</td><td class="p-3">App Casas Bahia > Cartão > Renegociação</td><td class="p-3">0800-025-0500</td></tr>
-                            <tr class="border-t"><td class="p-3 font-bold">Magazine Luiza</td><td class="p-3">App Magalu > Cartão Luiza > Acordos</td><td class="p-3">0800-777-0100</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="bg-blue-50 border-2 border-blue-300 rounded-xl p-6 mt-6">
-                <h2 class="text-xl font-extrabold text-blue-900 mb-3">📊 Passo a Passo para Descobrir TODAS as Suas Dívidas</h2>
-                <ol class="space-y-2 text-sm text-blue-800 list-decimal list-inside">
-                    <li>Acesse <strong>registrato.bcb.gov.br</strong> — sistema oficial do Banco Central (gratuito)</li>
-                    <li>Faça login com sua conta gov.br (nível prata ou ouro)</li>
-                    <li>Clique em "Relatório de Empréstimos e Financiamentos (SCR)"</li>
-                    <li>Veja TODAS as dívidas registradas no seu CPF — até as que você esqueceu</li>
-                    <li>Volte ao menu e clique em "Relatório de Chaves PIX" para ver contas vinculadas</li>
-                    <li>Depois, vá ao <strong>serasa.com.br</strong> e veja as ofertas de renegociação</li>
-                </ol>
-            </div>
-        </div>
-    </div>
+const container=document.getElementById('bancos-container');
+function renderizar(filtro){filtro=(filtro||'').toLowerCase();let h='';secoes.forEach(s=>{const v=s.bancos.filter(b=>b.nome.toLowerCase().includes(filtro)||b.canal.toLowerCase().includes(filtro));if(!v.length)return;h+=`<div><h2 class="text-base font-extrabold text-white mb-3 flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:${s.cor}"></span>${s.titulo}</h2><div class="space-y-2">`;v.forEach(b=>{h+=`<div class="border border-dark-500 rounded-xl p-4 hover:border-copper-500/30 transition bg-dark-800"><div class="flex justify-between items-start"><div><p class="font-bold text-white text-sm">${b.nome}</p><p class="text-xs text-gray-400 mt-0.5">${b.canal}</p></div></div><div class="flex gap-2 mt-3 flex-wrap">${b.contato?`<a href="tel:${b.contato.replace(/\D/g,'')}" class="text-xs font-bold text-copper-400 hover:text-copper-300 bg-copper-500/10 hover:bg-copper-500/20 px-3 py-1.5 rounded-lg transition">📞 ${b.contato}</a>`:''}${b.site?`<a href="${b.site}" target="_blank" rel="noopener" class="text-xs font-bold text-gray-400 hover:text-gray-300 bg-dark-600 hover:bg-dark-500 px-3 py-1.5 rounded-lg transition">🌐 Acessar site</a>`:''}</div></div>`});h+='</div></div>'});if(!h)h='<p class="text-center text-gray-400 py-8">Nenhum banco encontrado.</p>';container.innerHTML=h}
+function filtrarBancos(){renderizar(document.getElementById('busca').value)}
+renderizar();
+</script>
 </body>
 </html>

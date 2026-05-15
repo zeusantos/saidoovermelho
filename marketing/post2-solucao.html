@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{width:1080px;height:1080px;overflow:hidden;font-family:'Inter','system-ui',sans-serif;background:linear-gradient(135deg,#1A1A1A 0%,#0D0D0D 100%);color:#fff;display:flex;align-items:center;justify-content:center}
+        .container{text-align:center;padding:60px;max-width:900px}
+        h1{font-size:58px;font-weight:900;line-height:1.15;margin-bottom:40px}
+        h1 span{color:#C07B5E}
+        .modulos{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;max-width:850px;margin:0 auto}
+        .mod{background:rgba(192,123,94,0.08);border:2px solid rgba(192,123,94,0.2);padding:24px 28px;border-radius:16px;display:flex;align-items:center;gap:16px}
+        .mod .num{width:48px;height:48px;background:rgba(192,123,94,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#C07B5E;flex-shrink:0}
+        .mod .txt h3{font-size:22px;font-weight:700;margin-bottom:4px;color:#fff}
+        .mod .txt p{font-size:16px;color:#888}
+        .cta{margin-top:45px;font-size:32px;font-weight:800;color:#C07B5E}
+        .logo{position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:28px;color:#C07B5E;font-weight:700}
+        .preco{margin-top:30px;font-size:48px;font-weight:900}
+        .preco small{font-size:22px;color:#666;text-decoration:line-through;display:block;margin-bottom:4px}
+    </style>
+</head>
+<body>
+    <span class="logo">💰 Saia do Vermelho</span>
+    <div class="container">
+        <h1>Descubra o <span>método</span><br>para sair do vermelho em 30 dias</h1>
+        <div class="modulos">
+            <div class="mod"><div class="num">01</div><div class="txt"><h3>O Despertar</h3><p>Descubra pra onde seu dinheiro vai</p></div></div>
+            <div class="mod"><div class="num">02</div><div class="txt"><h3>O Mapa da Mina</h3><p>Orçamento 50-30-20 prático</p></div></div>
+            <div class="mod"><div class="num">03</div><div class="txt"><h3>O Escudo</h3><p>Saia das dívidas + reserva</p></div></div>
+            <div class="mod"><div class="num">04</div><div class="txt"><h3>Investimentos</h3><p>Seu dinheiro trabalhando</p></div></div>
+            <div class="mod" style="grid-column:1/-1;justify-content:center"><div class="num">05</div><div class="txt"><h3>Liberdade e Futuro</h3><p>Metas e disciplina para nunca mais voltar</p></div></div>
+        </div>
+        <div class="preco"><small>De R$ 99,90</small>R$ 49,99</div>
+        <p class="cta">Acesse o link na bio 👇</p>
+    </div>
+</body>
+</html>

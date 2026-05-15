@@ -4,43 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento Confirmado | Saia do Vermelho em 30 Dias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: { green: '#16a34a', dark: '#14532d', light: '#f0fdf4' }
-                    }
+                        copper: { 50:'#FDF8F5', 100:'#F5E6DE', 200:'#E8C4B4', 300:'#D4A08B', 400:'#C07B5E', 500:'#A8634A', 600:'#8B4E3A', 700:'#6E3A2A', 800:'#4E261A', 900:'#2E140D' },
+                        dark: { 800:'#0D0D0D', 700:'#141414', 600:'#1A1A1A', 500:'#333333' }
+                    },
+                    fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] }
                 }
             }
         }
     </script>
-    <meta http-equiv="refresh" content="5;url=area-membros.html">
+    <style>
+        .copper-gradient { background: linear-gradient(135deg, #C07B5E 0%, #D4A08B 50%, #C07B5E 100%); }
+        @keyframes checkmark { 0%{transform:scale(0);opacity:0} 50%{transform:scale(1.2)} 100%{transform:scale(1);opacity:1} }
+        .checkmark-anim { animation: checkmark .5s ease-out forwards; }
+    </style>
 </head>
-<body class="bg-brand-light min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl p-8 max-w-sm w-full shadow-xl text-center">
-        <span class="text-7xl block mb-6">🎉</span>
-        <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Pagamento Confirmado!</h1>
-        <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-            Seu acesso ao curso <strong>Saia do Vermelho em 30 Dias</strong> foi liberado com sucesso.
-        </p>
-
-        <div class="bg-brand-light rounded-xl p-4 mb-6">
-            <p class="text-xs text-gray-500 mb-2">Enviamos os dados de acesso para seu e-mail e WhatsApp</p>
-            <p class="text-sm font-bold text-brand-dark">Você será redirecionado em 5 segundos...</p>
+<body class="bg-dark-800 min-h-screen flex items-center justify-center p-4 font-sans antialiased">
+    <div class="bg-dark-700 rounded-2xl p-8 max-w-sm w-full shadow-xl border border-dark-600 text-center">
+        <div class="checkmark-anim inline-block w-20 h-20 rounded-full bg-green-500/10 ring-4 ring-green-500/20 mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         </div>
-
-        <a href="area-membros.html" class="block w-full bg-brand-green hover:bg-brand-dark text-white font-extrabold text-base py-3.5 rounded-xl shadow-lg transition-all">
-            🚀 IR PARA ÁREA DE MEMBROS AGORA
-        </a>
-
-        <div class="border-t border-gray-100 mt-6 pt-4">
-            <p class="text-xs text-gray-400">Qualquer dúvida, fale com a gente:</p>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="text-sm font-bold text-brand-green hover:underline">
-                💬 WhatsApp do Suporte
-            </a>
+        <h1 class="text-2xl font-extrabold text-white mb-2">Pagamento Confirmado!</h1>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">Seu acesso ao curso <strong class="text-white">Saia do Vermelho em 30 Dias</strong> foi liberado com sucesso.</p>
+        <div class="bg-copper-500/10 border border-copper-500/20 rounded-xl p-4 mb-6">
+            <p class="text-xs text-gray-400 mb-2">Os dados de acesso foram enviados para seu e-mail e WhatsApp</p>
+            <p class="text-sm font-bold text-white">Acesse sua área de membros agora</p>
+        </div>
+        <a href="area-membros.html" class="block w-full copper-gradient hover:opacity-90 text-white font-extrabold text-base py-3.5 rounded-xl shadow-lg transition-all mb-4">🚀 IR PARA ÁREA DE MEMBROS</a>
+        <div class="border-t border-dark-600 pt-4">
+            <p class="text-xs text-gray-500 mb-1">Pagamento não confirmou?</p>
+            <a href="https://wa.me/5581999733696?text=Ol%C3%A1!%20Meu%20pagamento%20n%C3%A3o%20foi%20confirmado.%20Pode%20verificar%3F" target="_blank" rel="noopener" class="text-sm font-bold text-copper-400 hover:text-copper-300 transition">💬 Falar no WhatsApp</a>
         </div>
     </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('status') === 'approved' || params.get('collection_status') === 'approved') {
+            localStorage.setItem('aluno_acesso', 'true');
+            localStorage.setItem('aluno_nome', 'Aluno');
+            localStorage.setItem('data_compra', new Date().toLocaleDateString('pt-BR'));
+        }
+    </script>
 </body>
 </html>

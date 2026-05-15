@@ -4,123 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Reserva de Emergência | Saia do Vermelho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>@media print { body { background: white !important; } .no-print { display: none !important; } }</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{copper:{50:'#FDF8F5',100:'#F5E6DE',200:'#E8C4B4',300:'#D4A08B',400:'#C07B5E',500:'#A8634A',600:'#8B4E3A',700:'#6E3A2A',800:'#4E261A',900:'#2E140D'},dark:{800:'#0D0D0D',700:'#141414',600:'#1A1A1A',500:'#333333',400:'#666666'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+    <style>.copper-gradient{background:linear-gradient(135deg,#C07B5E,#D4A08B,#C07B5E)}@media print{body{background:#0D0D0D!important}.no-print{display:none!important}}</style>
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="max-w-2xl mx-auto p-4 print:p-0">
-        <div class="bg-gradient-to-r from-green-700 to-green-500 text-white rounded-2xl p-8 mb-6 text-center no-print">
-            <h1 class="text-3xl font-extrabold mb-2">🛡️ Calculadora de Reserva de Emergência</h1>
-            <p class="text-green-100">Descubra quanto juntar, em quanto tempo e onde guardar seu dinheiro</p>
-            <button onclick="window.print()" class="mt-4 bg-white text-green-700 font-bold px-6 py-2 rounded-xl hover:bg-green-50 transition">🖨️ Imprimir / Salvar como PDF</button>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h1 class="text-2xl font-extrabold text-gray-900 mb-2 hidden print:block">🛡️ Calculadora de Reserva de Emergência</h1>
+<body class="bg-dark-800 text-gray-300 font-sans antialiased">
+<div class="max-w-2xl mx-auto p-4">
+<div class="copper-gradient text-white rounded-2xl p-6 mb-6 text-center no-print shadow-lg"><h1 class="text-2xl font-extrabold mb-1">🛡️ Calculadora de Reserva</h1><p class="text-white/80 text-sm">Descubra quanto juntar e em quanto tempo</p><button onclick="window.print()" class="mt-4 bg-white text-copper-600 font-bold px-5 py-2 rounded-xl hover:bg-copper-50 transition text-sm">🖨️ Imprimir</button></div>
 
-            <!-- Calculadora Interativa -->
-            <div class="bg-green-50 rounded-2xl p-6 mb-8 no-print">
-                <h2 class="text-lg font-extrabold text-green-900 mb-4">🧮 Simulador Interativo</h2>
-                <div class="space-y-4">
-                    <div><label class="text-sm font-semibold text-gray-700">Quanto você ganha por mês? (R$)</label><input type="number" id="renda" value="1412" class="w-full mt-1 px-3 py-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"></div>
-                    <div><label class="text-sm font-semibold text-gray-700">Quanto você gasta por mês? (R$)</label><input type="number" id="gastos" value="1300" class="w-full mt-1 px-3 py-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"></div>
-                    <div><label class="text-sm font-semibold text-gray-700">Quanto já tem guardado? (R$)</label><input type="number" id="guardado" value="0" class="w-full mt-1 px-3 py-3 border border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"></div>
-                    <button onclick="calcularReserva()" class="w-full bg-green-600 text-white font-extrabold py-3 rounded-xl text-lg hover:bg-green-700 transition">CALCULAR MINHA RESERVA</button>
-                </div>
-                <div id="resultado" class="mt-6 hidden"></div>
-            </div>
-
-            <h2 class="text-xl font-extrabold text-gray-900 mb-4">📊 A Meta: R$ 1.000 em 3 Meses</h2>
-            <div class="bg-gray-50 rounded-xl p-6 mb-6">
-                <table class="w-full text-sm">
-                    <thead><tr class="border-b border-gray-300"><th class="p-2 text-left">Mês</th><th class="p-2 text-right">Valor a Guardar</th><th class="p-2 text-right">Acumulado</th><th class="p-2 text-left">Estratégia</th></tr></thead>
-                    <tbody>
-                        <tr class="border-b border-gray-200"><td class="p-2 font-bold">Mês 1</td><td class="p-2 text-right">R$ 340</td><td class="p-2 text-right font-bold">R$ 340</td><td class="p-2 text-xs">R$ 11,33 por dia — menos que 1 delivery</td></tr>
-                        <tr class="border-b border-gray-200"><td class="p-2 font-bold">Mês 2</td><td class="p-2 text-right">R$ 330</td><td class="p-2 text-right font-bold">R$ 670</td><td class="p-2 text-xs">R$ 11,00 por dia — mantenha o ritmo</td></tr>
-                        <tr class="border-b border-gray-300"><td class="p-2 font-bold">Mês 3</td><td class="p-2 text-right">R$ 330</td><td class="p-2 text-right font-extrabold text-green-700">R$ 1.000</td><td class="p-2 text-xs">Meta atingida! 🎉</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2 class="text-xl font-extrabold text-gray-900 mb-4">🏦 Onde Guardar o Dinheiro</h2>
-            <div class="space-y-3 mb-6">
-                <div class="border-2 border-green-200 rounded-xl p-4">
-                    <div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥇</span><h3 class="font-extrabold text-gray-900">Melhor: Tesouro Selic (via app do banco ou Tesouro Direto)</h3></div>
-                    <p class="text-sm text-gray-600">Rende ~12% ao ano. Pode sacar a qualquer momento, inclusive fim de semana. Dinheiro cai na conta em 1 dia útil.</p>
-                </div>
-                <div class="border-2 border-yellow-200 rounded-xl p-4">
-                    <div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥈</span><h3 class="font-extrabold text-gray-900">Bom: CDB com liquidez diária (Nubank, Inter, PicPay)</h3></div>
-                    <p class="text-sm text-gray-600">Rende ~11% ao ano. Resgate instantâneo 24h/dia. Já é melhor que a poupança.</p>
-                </div>
-                <div class="border-2 border-gray-200 rounded-xl p-4">
-                    <div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥉</span><h3 class="font-extrabold text-gray-900">Quebra-galho: Poupança (qualquer banco)</h3></div>
-                    <p class="text-sm text-gray-600">Rende ~6% ao ano. É o pior investimento, mas é melhor que guardar em casa ou não guardar nada.</p>
-                </div>
-                <div class="border-2 border-red-200 rounded-xl p-4 bg-red-50">
-                    <div class="flex items-center gap-2 mb-1"><span class="text-2xl">❌</span><h3 class="font-extrabold text-red-800">NUNCA: Guardar dinheiro em casa</h3></div>
-                    <p class="text-sm text-red-700">Além do risco de furto, o dinheiro parado PERDE valor todo dia por causa da inflação. R$ 100 hoje valem menos que R$ 100 ano passado.</p>
-                </div>
-            </div>
-
-            <h2 class="text-xl font-extrabold text-gray-900 mb-4">📐 O Método do "Primeiro Boleto"</h2>
-            <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-6">
-                <ol class="space-y-3 text-sm text-blue-900 list-decimal list-inside">
-                    <li><strong>Assim que o salário cair</strong>, transfira 20% para a conta da reserva. Isso é o "primeiro boleto" — você se pagando primeiro.</li>
-                    <li><strong>Não deixe na conta corrente.</strong> Separe em outra conta, de preferência em outro banco, para criar fricção e dificultar gastar.</li>
-                    <li><strong>Nomeie a conta como "RESERVA — NÃO MEXER".</strong> Parece bobo, mas funciona. Psicologia comportamental.</li>
-                    <li><strong>Só use em emergências reais:</strong> perdeu o emprego, quebrou o celular, remédio urgente, conserto do fogão. Não é para tênis novo, festa ou viagem.</li>
-                    <li><strong>Ao atingir R$ 1.000, comemore.</strong> Depois, continue juntando até ter 3 meses de gastos (meta ideal) ou 6 meses (meta avançada).</li>
-                </ol>
-            </div>
-
-            <h2 class="text-xl font-extrabold text-gray-900 mb-4">📱 Tabela de Metas por Renda</h2>
-            <table class="w-full text-sm mb-6">
-                <thead><tr class="bg-gray-100"><th class="p-3 text-left">Sua Renda Mensal</th><th class="p-3 text-right">Meta Mínima (1 mês)</th><th class="p-3 text-right">Meta Ideal (3 meses)</th><th class="p-3 text-right">Meta Avançada (6 meses)</th><th class="p-3 text-left">Tempo para o Mínimo</th></tr></thead>
-                <tbody>
-                    <tr class="border-t"><td class="p-3">R$ 1.412 (SM)</td><td class="p-3 text-right">R$ 1.000</td><td class="p-3 text-right">R$ 4.236</td><td class="p-3 text-right">R$ 8.472</td><td class="p-3">3 meses</td></tr>
-                    <tr class="border-t"><td class="p-3">R$ 2.000</td><td class="p-3 text-right">R$ 1.500</td><td class="p-3 text-right">R$ 6.000</td><td class="p-3 text-right">R$ 12.000</td><td class="p-3">3-4 meses</td></tr>
-                    <tr class="border-t"><td class="p-3">R$ 2.500</td><td class="p-3 text-right">R$ 2.000</td><td class="p-3 text-right">R$ 7.500</td><td class="p-3 text-right">R$ 15.000</td><td class="p-3">3-4 meses</td></tr>
-                    <tr class="border-t"><td class="p-3">R$ 3.000</td><td class="p-3 text-right">R$ 2.500</td><td class="p-3 text-right">R$ 9.000</td><td class="p-3 text-right">R$ 18.000</td><td class="p-3">3-4 meses</td></tr>
-                </tbody>
-            </table>
-
-            <div class="bg-green-100 border-2 border-green-400 rounded-2xl p-6">
-                <h2 class="text-xl font-extrabold text-green-900 mb-3">✅ Checklist da Reserva de Emergência</h2>
-                <div class="space-y-1 text-sm text-green-800">
-                    <p>☐ Abri uma conta separada só para a reserva</p>
-                    <p>☐ Configurei transferência automática no dia do salário</p>
-                    <p>☐ Defini minha meta: R$ __________</p>
-                    <p>☐ Escolhi onde guardar: _______________</p>
-                    <p>☐ Anotei quanto vou guardar por mês: R$ __________</p>
-                    <p>☐ Primeiro depósito feito (comece com R$ 10 se for o que tem)</p>
-                    <p>☐ Nomeei a conta de "RESERVA — NÃO MEXER"</p>
-                    <p>☐ Prometi a mim mesmo(a): só mexo em emergência real</p>
-                </div>
-            </div>
-        </div>
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600">
+    <div class="bg-copper-500/10 rounded-2xl p-5 mb-8 border border-copper-500/20 no-print"><h2 class="text-lg font-extrabold text-white mb-4">🧮 Simulador Interativo</h2>
+        <div class="space-y-3"><div><label class="text-xs font-semibold text-gray-400">Quanto você ganha por mês? (R$)</label><input type="number" id="renda" value="1412" class="w-full mt-1 px-3 py-3 bg-dark-800 border border-dark-600 rounded-lg text-lg text-white focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div>
+        <div><label class="text-xs font-semibold text-gray-400">Quanto você gasta por mês? (R$)</label><input type="number" id="gastos" value="1300" class="w-full mt-1 px-3 py-3 bg-dark-800 border border-dark-600 rounded-lg text-lg text-white focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div>
+        <div><label class="text-xs font-semibold text-gray-400">Quanto já tem guardado? (R$)</label><input type="number" id="guardado" value="0" class="w-full mt-1 px-3 py-3 bg-dark-800 border border-dark-600 rounded-lg text-lg text-white focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div>
+        <button onclick="calcularReserva()" class="w-full copper-gradient hover:opacity-90 text-white font-extrabold py-3 rounded-xl text-sm transition shadow-lg">CALCULAR MINHA RESERVA</button></div>
+        <div id="resultado" class="mt-5 hidden"></div>
     </div>
 
-    <script>
-        function calcularReserva() {
-            const renda = parseFloat(document.getElementById('renda').value) || 0;
-            const gastos = parseFloat(document.getElementById('gastos').value) || 0;
-            const guardado = parseFloat(document.getElementById('guardado').value) || 0;
-            const sobra = renda - gastos;
-            const metaMin = 1000;
-            const metaIdeal = gastos * 3;
-            const falta = metaMin - guardado;
-            const meses = sobra > 0 ? Math.ceil(falta / sobra) : Infinity;
+    <div class="mb-8"><h2 class="text-lg font-extrabold text-white mb-4">📈 Projeção com Juros Compostos</h2><canvas id="chartProjecao" height="280"></canvas></div>
 
-            const div = document.getElementById('resultado');
-            div.classList.remove('hidden');
-            div.innerHTML = `
-                <div class="bg-white rounded-xl p-4 border border-green-200 space-y-2">
-                    <p class="text-sm"><strong>Sobra mensal:</strong> <span class="text-green-700 font-extrabold">R$ ${sobra.toFixed(2)}</span></p>
-                    <p class="text-sm"><strong>Meta mínima (R$ 1.000):</strong> ${meses === Infinity ? '<span class="text-red-600">Não sobra dinheiro. Aplique os 30 cortes primeiro!</span>' : '<span class="text-green-700 font-extrabold">' + meses + ' meses</span> faltando R$ ' + falta.toFixed(2)}</p>
-                    <p class="text-sm"><strong>Meta ideal (3 meses de gastos):</strong> <span class="text-green-700 font-extrabold">R$ ${metaIdeal.toFixed(2)}</span></p>
-                    ${sobra > 0 ? '<p class="text-sm"><strong>Por dia você precisa guardar:</strong> <span class="text-green-700 font-extrabold">R$ ' + (falta / 30).toFixed(2) + '</span></p>' : ''}
-                    <p class="text-sm"><strong>Já guardado:</strong> R$ ${guardado.toFixed(2)} (${guardado > 0 ? Math.round(guardado/metaMin*100) : 0}% da meta mínima)</p>
-                </div>`;
-        }
-    </script>
+    <div class="mb-8"><h2 class="text-lg font-extrabold text-white mb-4">🏦 Tesouro Selic vs Poupança vs Nada</h2><canvas id="chartComparativo" height="280"></canvas><p class="text-xs text-gray-500 mt-2 text-center">Simulação: R$ 1.000 investidos por 12 meses</p></div>
+
+    <h2 class="text-lg font-extrabold text-white mb-4">🏦 Onde Guardar</h2>
+    <div class="space-y-3 mb-6">
+        <div class="border-2 border-copper-500/30 rounded-xl p-4"><div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥇</span><h3 class="font-extrabold text-white text-sm">Tesouro Selic</h3></div><p class="text-xs text-gray-400">Rende ~12% ao ano. Pode sacar a qualquer momento.</p></div>
+        <div class="border-2 border-copper-500/20 rounded-xl p-4"><div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥈</span><h3 class="font-extrabold text-white text-sm">CDB liquidez diária</h3></div><p class="text-xs text-gray-400">Rende ~11% ao ano. Resgate instantâneo 24h/dia.</p></div>
+        <div class="border-2 border-dark-500 rounded-xl p-4"><div class="flex items-center gap-2 mb-1"><span class="text-2xl">🥉</span><h3 class="font-extrabold text-white text-sm">Poupança</h3></div><p class="text-xs text-gray-400">Rende ~6% ao ano. Melhor que nada.</p></div>
+        <div class="border-2 border-red-500/20 rounded-xl p-4 bg-red-500/5"><div class="flex items-center gap-2 mb-1"><span class="text-2xl">❌</span><h3 class="font-extrabold text-red-400 text-sm">NUNCA: Dinheiro em casa</h3></div><p class="text-xs text-red-400/70">Furto + inflação corroem seu dinheiro parado.</p></div>
+    </div>
+
+    <h2 class="text-lg font-extrabold text-white mb-4">📐 Método do "Primeiro Boleto"</h2>
+    <div class="bg-blue-500/10 border-2 border-blue-500/20 rounded-xl p-5 mb-6"><ol class="space-y-2 text-sm text-blue-300 list-decimal list-inside"><li><strong>Salário caiu</strong> → transfira 20% para reserva.</li><li><strong>Conta separada</strong> em outro banco.</li><li><strong>Nomeie:</strong> "RESERVA — NÃO MEXER".</li><li><strong>Só use em emergências reais.</strong></li><li><strong>Ao atingir R$ 1.000, comemore.</strong></li></ol></div>
+
+    <h2 class="text-lg font-extrabold text-white mb-4">📱 Metas por Renda</h2>
+    <div class="overflow-x-auto"><table class="w-full text-sm mb-6"><thead><tr class="bg-dark-600"><th class="p-3 text-left text-xs font-bold text-gray-400">Renda</th><th class="p-3 text-right text-xs font-bold text-gray-400">Mínima</th><th class="p-3 text-right text-xs font-bold text-gray-400">Ideal (3m)</th><th class="p-3 text-right text-xs font-bold text-gray-400">Avançada (6m)</th></tr></thead><tbody class="divide-y divide-dark-600"><tr><td class="p-3 text-white">R$ 1.412</td><td class="p-3 text-right">R$ 1.000</td><td class="p-3 text-right">R$ 4.236</td><td class="p-3 text-right">R$ 8.472</td></tr><tr><td class="p-3 text-white">R$ 2.000</td><td class="p-3 text-right">R$ 1.500</td><td class="p-3 text-right">R$ 6.000</td><td class="p-3 text-right">R$ 12.000</td></tr><tr><td class="p-3 text-white">R$ 3.000</td><td class="p-3 text-right">R$ 2.000</td><td class="p-3 text-right">R$ 9.000</td><td class="p-3 text-right">R$ 18.000</td></tr><tr><td class="p-3 text-white">R$ 4.000</td><td class="p-3 text-right">R$ 3.000</td><td class="p-3 text-right">R$ 12.000</td><td class="p-3 text-right">R$ 24.000</td></tr></tbody></table></div>
+</div></div>
+
+<script>
+function calcularReserva(){const renda=parseFloat(document.getElementById('renda').value)||0;const gastos=parseFloat(document.getElementById('gastos').value)||0;const guardado=parseFloat(document.getElementById('guardado').value)||0;const sobra=renda-gastos;const metaMin=gastos*1;const metaIdeal=gastos*3;const metaAvancada=gastos*6;const falta=metaMin-guardado;const meses=sobra>0?Math.ceil(falta/sobra):Infinity;document.getElementById('resultado').innerHTML=`<div class="grid grid-cols-2 gap-3 text-center"><div class="bg-dark-800 rounded-xl p-3 border border-dark-600"><p class="text-xs text-gray-400">Sobra mensal</p><p class="text-xl font-extrabold ${sobra>0?'text-green-400':'text-red-400'}">R$ ${sobra.toFixed(0)}</p></div><div class="bg-dark-800 rounded-xl p-3 border border-dark-600"><p class="text-xs text-gray-400">Tempo até meta</p><p class="text-xl font-extrabold text-copper-400">${meses===Infinity?'--':meses+' meses'}</p></div></div><div class="mt-3 space-y-1 text-xs"><div class="flex justify-between"><span class="text-gray-400">Meta mínima:</span><span class="font-bold text-white">R$ ${metaMin.toFixed(0)}</span></div><div class="flex justify-between"><span class="text-gray-400">Meta ideal:</span><span class="font-bold text-white">R$ ${metaIdeal.toFixed(0)}</span></div><div class="flex justify-between"><span class="text-gray-400">Meta avançada:</span><span class="font-bold text-white">R$ ${metaAvancada.toFixed(0)}</span></div></div>`;document.getElementById('resultado').classList.remove('hidden')}
+
+const meses12=['Mês 1','Mês 2','Mês 3','Mês 4','Mês 5','Mês 6','Mês 7','Mês 8','Mês 9','Mês 10','Mês 11','Mês 12'];
+function calcJuros(aporte,taxaAnual){const taxaMensal=taxaAnual/12;let arr=[],saldo=0;for(let i=0;i<12;i++){saldo=(saldo+aporte)*(1+taxaMensal);arr.push(+saldo.toFixed(2))}return arr}
+new Chart(document.getElementById('chartProjecao'),{type:'line',data:{labels:meses12,datasets:[{label:'Tesouro Selic (12% a.a.)',data:calcJuros(100,0.12),borderColor:'#C07B5E',backgroundColor:'rgba(192,123,94,0.15)',fill:true,tension:.4,borderWidth:2},{label:'Poupança (6% a.a.)',data:calcJuros(100,0.06),borderColor:'#999',backgroundColor:'rgba(153,153,153,0.1)',fill:true,tension:.4,borderWidth:2,borderDash:[5,5]},{label:'Em casa (0%)',data:Array(12).fill(0).map((_,i)=>(i+1)*100),borderColor:'#EF4444',backgroundColor:'rgba(239,68,68,0.05)',fill:true,tension:.4,borderWidth:2,borderDash:[2,2]}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:11},padding:14,color:'#999',usePointStyle:true}}},scales:{y:{ticks:{callback:v=>'R$ '+v,font:{family:'Inter'},color:'#999'},grid:{color:'#333'}},x:{ticks:{font:{family:'Inter'},color:'#999'}}}}});
+
+new Chart(document.getElementById('chartComparativo'),{type:'bar',data:{labels:['Tesouro Selic','CDB 110%','Poupança','Em casa'],datasets:[{label:'Rendimento',data:[1120,1105,1060,1000],backgroundColor:['#C07B5E','#D4A08B','#666','#EF4444'],borderRadius:8}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'R$ '+v,font:{family:'Inter'},color:'#999'},grid:{color:'#333'}},x:{ticks:{font:{family:'Inter',size:11},color:'#999'}}}});
+</script>
 </body>
 </html>

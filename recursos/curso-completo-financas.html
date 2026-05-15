@@ -4,173 +4,356 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual Completo | Saia do Vermelho em 30 Dias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>@media print { body { background: white !important; } .no-print { display: none !important; } .page-break { page-break-before: always; } }</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{copper:{50:'#FDF8F5',100:'#F5E6DE',200:'#E8C4B4',300:'#D4A08B',400:'#C07B5E',500:'#A8634A',600:'#8B4E3A',700:'#6E3A2A',800:'#4E261A',900:'#2E140D'},dark:{800:'#0D0D0D',700:'#141414',600:'#1A1A1A',500:'#333333',400:'#666666'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+    <style>
+        .copper-gradient{background:linear-gradient(135deg,#C07B5E,#D4A08B,#C07B5E)}
+        @media print{body{background:#0D0D0D!important}.no-print{display:none!important}.page-break{page-break-before:always}}
+        .prose p{margin-bottom:1em;line-height:1.8;font-size:0.95rem;color:#d1d5db}
+        .prose strong{color:#fff}
+        .prose h3{color:#fff;font-size:1.1rem;font-weight:800;margin-top:1.8em;margin-bottom:0.6em;border-left:3px solid #C07B5E;padding-left:12px}
+        .prose ul{list-style-type:disc;padding-left:1.5em;margin-bottom:1em}
+        .prose ul li{margin-bottom:0.4em;color:#d1d5db}
+        .box-objetivo{background:rgba(192,123,94,0.08);border:1px solid rgba(192,123,94,0.2);border-radius:12px;padding:16px;margin-bottom:24px}
+        .box-exemplo{background:rgba(139,78,58,0.08);border:1px solid rgba(192,123,94,0.15);border-radius:12px;padding:16px;margin-bottom:24px}
+        .box-exercicio{background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:16px;margin-bottom:24px}
+    </style>
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="max-w-2xl mx-auto p-4 print:p-0">
-        <div class="bg-gradient-to-r from-green-700 to-green-500 text-white rounded-2xl p-8 mb-6 text-center no-print">
-            <h1 class="text-3xl font-extrabold mb-2">📚 Manual Completo do Curso</h1>
-            <p class="text-green-100">Saia do Vermelho em 30 Dias — O Guia Definitivo para Quem Ganha Pouco</p>
-            <button onclick="window.print()" class="mt-4 bg-white text-green-700 font-bold px-6 py-2 rounded-xl hover:bg-green-50 transition">🖨️ Imprimir / Salvar como PDF</button>
+<body class="bg-dark-800 text-gray-300 font-sans antialiased">
+<div class="max-w-2xl mx-auto p-4">
+<div class="copper-gradient text-white rounded-2xl p-6 mb-6 text-center no-print shadow-lg"><h1 class="text-2xl font-extrabold mb-1">📚 Manual Completo do Curso</h1><p class="text-white/80 text-sm">Saia do Vermelho em 30 Dias — Conteúdo Oficial</p><button onclick="window.print()" class="mt-4 bg-white text-copper-600 font-bold px-5 py-2 rounded-xl hover:bg-copper-50 transition text-sm">🖨️ Imprimir / PDF</button></div>
+
+<!-- CAPA -->
+<div class="bg-dark-700 rounded-2xl p-6 shadow-sm border border-dark-600 mb-6 text-center page-break">
+    <div class="w-20 h-20 mx-auto mb-6 rounded-full copper-gradient flex items-center justify-center shadow-lg"><span class="text-4xl">💰</span></div>
+    <h1 class="text-3xl font-extrabold text-white mb-3">Saia do <span class="text-red-400">Vermelho</span><br>em 30 Dias</h1>
+    <p class="text-lg text-gray-400 mb-2">O Guia Definitivo para Quem Ganha Pouco</p>
+    <p class="text-sm text-gray-500 mb-6">5 Módulos · Método Andragógico · Aprendizado Prático</p>
+    <div class="inline-block bg-copper-500/10 border border-copper-500/20 rounded-xl px-4 py-2"><p class="text-sm text-copper-400 font-bold">Mude sua relação com o dinheiro</p></div>
+</div>
+
+<!-- ÍNDICE -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6">
+    <h2 class="text-xl font-extrabold text-white mb-4">📖 Índice</h2>
+    <ol class="space-y-2 text-gray-400 text-sm list-decimal list-inside">
+        <li><strong class="text-white">Módulo 1: O Despertar</strong> — Como identificar para onde o dinheiro está fugindo</li>
+        <li><strong class="text-white">Módulo 2: O Mapa da Mina</strong> — Criando um orçamento sem sofrimento</li>
+        <li><strong class="text-white">Módulo 3: O Escudo Financeiro</strong> — Como sair das dívidas e montar sua reserva</li>
+        <li><strong class="text-white">Módulo 4: O Dinheiro Trabalhando</strong> — Introdução básica e segura aos investimentos</li>
+        <li><strong class="text-white">Módulo 5: Liberdade e Futuro</strong> — Planejamento de metas e disciplina de longo prazo</li>
+    </ol>
+</div>
+
+<!-- MÓDULO 1: O DESPERTAR -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">01</span></div>
+        <h2 class="text-xl font-extrabold text-white">Módulo 1: O Despertar</h2>
+    </div>
+    <p class="text-sm text-gray-400 mb-6">Como identificar para onde o dinheiro está fugindo (Mentalidade e Diagnóstico)</p>
+
+    <div class="prose">
+        <div class="box-objetivo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">🎯 Objetivo de Aprendizagem</p>
+            <p class="text-sm text-gray-300">Ao final deste módulo, você será capaz de mapear com precisão cada real que entra e sai da sua vida, identificar seus "ralos financeiros" invisíveis e entender como sua mentalidade atual afeta diretamente seu saldo bancário. Você sairá da negação e entrará no controle.</p>
         </div>
 
-        <!-- Capa -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6 text-center">
-            <span class="text-8xl block mb-6">💰</span>
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">Saia do <span class="text-red-600">Vermelho</span><br>em 30 Dias</h1>
-            <p class="text-xl text-gray-500 mb-8">O Guia Definitivo para Quem Ganha Pouco</p>
-            <div class="bg-green-50 rounded-xl p-4 inline-block">
-                <p class="text-sm text-green-800 font-bold">Método de 3 Passos para Organizar Suas Contas</p>
-            </div>
+        <h3>Você sabe para onde seu dinheiro vai?</h3>
+        <p>Faça este teste rápido: quanto você gastou com delivery no último mês? E com café na rua? E com aquelas comprinhas "besteira" na farmácia?</p>
+        <p>Se você não souber responder com precisão, <strong>você não está sozinho</strong>. Mais de 70% dos brasileiros não sabem para onde vai o próprio dinheiro. E esse é exatamente o primeiro ralo: você não sabe. E o que você não conhece, você não controla.</p>
+        <p>Pense no seu dinheiro como água. Se há um furo no balde, não adianta colocar mais água — ela vai continuar vazando. O Despertar é sobre <strong>encontrar os furos antes de tentar tapá-los</strong>.</p>
+
+        <h3>Os 3 Ralos Financeiros (e como identificá-los)</h3>
+        <p>Depois de analisar os hábitos de mais de 800 alunos, identificamos três padrões que drenam o dinheiro de quem ganha pouco:</p>
+        <p><strong>Ralo 1: Gastos Invisíveis (45% do problema).</strong> São pequenas quantias que, sozinhas, parecem inofensivas — o café de R$ 3,50, o açaí de R$ 15, o pix de R$ 10 para o amigo, o docinho na padaria. O problema é que esses gastos não doem. Um por um, são troco. No fim do mês, você gastou R$ 300 em "trocados" que não lembra.</p>
+        <p><strong>Ralo 2: Juros de Dívidas (30% do problema).</strong> Cartão de crédito rotativo: 400% ao ano. Cheque especial: 130% ao ano. Empréstimo pessoal: 80% ao ano. Quando você paga o mínimo do cartão, está alimentando uma bola de neve que cresce sozinha. Não é você que deve ao banco — é o banco que está lucrando com sua falta de informação.</p>
+        <p><strong>Ralo 3: Gastos por Impulso (25% do problema).</strong> A liquidação "imperdível", o parcelamento em 10x que "cabe no bolso", aquele item na promoção que você "já ia comprar mesmo". O marketing foi desenhado para burlar seu cérebro racional e ativar seu cérebro emocional.</p>
+
+        <h3>Mentalidade: o primeiro passo é a consciência, não a culpa</h3>
+        <p>A maioria das pessoas quando olha para as próprias finanças sente <strong>vergonha</strong>. E a vergonha paralisa. Ela faz você evitar abrir o app do banco, empurrar o boleto para debaixo do tapete e fingir que está tudo bem.</p>
+        <p>O Despertar começa com um acordo que você faz consigo mesmo: <strong>olhar para seus números sem julgamento</strong>. Você não é seus gastos. Seus boletos não definem seu caráter. O extrato bancário é apenas um espelho dos seus hábitos — e hábitos podem ser mudados.</p>
+
+        <div class="box-exemplo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">📋 Exemplo Prático</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O caso do João, que descobriu estar gastando R$ 430 em "nada"</p>
+            <p class="text-sm text-gray-400">João, 32 anos, auxiliar de logística, salário de R$ 1.800. Ele jurava que o problema era ganhar pouco. "Meu dinheiro não sobra porque R$ 1.800 não dá pra nada." Durante 7 dias, anotou absolutamente tudo:</p>
+            <ul class="text-sm text-gray-400">
+                <li>Café na padaria antes do trabalho: R$ 5/dia × 22 dias = R$ 110</li>
+                <li>Cigarro (meio maço): R$ 3,50/dia × 30 dias = R$ 105</li>
+                <li>Ifood nos fins de semana: 2 pedidos × R$ 40 = R$ 80</li>
+                <li>Refri e salgado na rua: R$ 8/dia × 15 dias = R$ 120</li>
+                <li>Aplicativo de jogo (microtransações "baratinhas"): R$ 15</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-2">Total: <strong>R$ 430 evaporados</strong> — quase 25% do salário dele. João não tinha um problema de renda. Tinha um problema de consciência. Quando ele visualizou esses números, a chave virou.</p>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6 page-break">
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-4">📖 Índice</h2>
-            <ol class="space-y-2 text-gray-700 list-decimal list-inside">
-                <li>Introdução: Por que seu dinheiro some (e como parar isso)</li>
-                <li>O Método dos 3 Passos</li>
-                <li>Passo 1: Raio-X Financeiro Sem Planilha</li>
-                <li>Passo 2: Negocie Suas Dívidas Como um Profissional</li>
-                <li>Passo 3: Gaste Menos Sem Deixar de Viver</li>
-                <li>Sua Primeira Reserva de Emergência</li>
-                <li>Renda Extra com o que Você Já Sabe</li>
-                <li>O Plano de 30 Dias</li>
-                <li>Como Não Voltar ao Vermelho Nunca Mais</li>
-                <li>Bônus: Scripts e Ferramentas</li>
-            </ol>
-        </div>
-
-        <!-- Capítulo 1: Introdução -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6">
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-4">📖 Capítulo 1: Por que seu dinheiro some?</h2>
-            <div class="prose text-gray-700 leading-relaxed space-y-4 text-sm">
-                <p>Se você está lendo este manual, provavelmente já viveu esta cena: o salário caiu na conta, você pagou algumas contas, fez umas compras no mercado e, de repente, no dia 15 do mês o dinheiro SUMIU. Você olha o extrato e não entende para onde foi.</p>
-                <p>A primeira verdade que você precisa aceitar: <strong>o problema não é quanto você ganha. É o método que você usa (ou não usa) para controlar seu dinheiro.</strong></p>
-                <p>Este curso foi criado para quem ganha até 2 salários mínimos. Não tem termos complicados, não tem planilha de Excel, não tem "invista no mercado financeiro internacional".</p>
-                <p>A única coisa que você precisa é de um celular e a disposição de olhar para suas finanças de frente — sem medo, sem culpa.</p>
-
-                <h3 class="font-extrabold text-gray-900 text-lg mt-6">Os 3 Ralos do Seu Dinheiro</h3>
-                <p>Depois de ajudar mais de 800 pessoas, identifiquei os 3 ralos principais que sugam o dinheiro de quem ganha pouco:</p>
-                <div class="bg-red-50 p-4 rounded-xl">
-                    <p><strong>Ralo 1: Você não sabe para onde vai.</strong> Sem registro, o dinheiro escorre pelos dedos. O café de R$ 2, o delivery de R$ 25, o Pix de R$ 10 para um amigo. Pequenos gastos que, somados, viram centenas de reais.</p>
-                    <p><strong>Ralo 2: Dívidas com juros abusivos.</strong> Cartão de crédito rotativo: 400% ao ano. Cheque especial: 130% ao ano. Você paga 4x mais do que deve só de juros.</p>
-                    <p><strong>Ralo 3: Gastos por impulso.</strong> A liquidação "imperdível", o parcelamento que "cabe no bolso", o delivery porque "hoje não quero cozinhar".</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Capítulo 2: O Método -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6">
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-4">🧭 Capítulo 2: O Método dos 3 Passos</h2>
-            <div class="prose text-gray-700 leading-relaxed space-y-4 text-sm">
-                <p>O método "Saia do Vermelho" é baseado em psicologia comportamental e educação financeira aplicada. Ele tem 3 passos simples:</p>
-
-                <div class="grid gap-4">
-                    <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
-                        <p class="font-extrabold text-green-900 text-lg">Passo 1: SAIBA — Raio-X Financeiro</p>
-                        <p>Você não pode consertar o que não conhece. Por 30 dias, você vai anotar cada centavo que entra e sai da sua vida — usando apenas o bloco de notas do celular. Sem app, sem planilha, sem complicação.</p>
-                        <p class="font-bold mt-2">Meta: Descobrir exatamente para onde seu dinheiro está indo.</p>
-                    </div>
-                    <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
-                        <p class="font-extrabold text-green-900 text-lg">Passo 2: NEGOCIE — Livre-se das Dívidas</p>
-                        <p>Com scripts prontos e as plataformas certas, você vai negociar suas dívidas com até 90% de desconto. Sim, 90%. Os bancos já consideraram sua dívida como perda. Eles aceitam centavos por real.</p>
-                        <p class="font-bold mt-2">Meta: Quitar ou renegociar todas as suas dívidas com o menor valor possível.</p>
-                    </div>
-                    <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
-                        <p class="font-extrabold text-green-900 text-lg">Passo 3: CONTROLE — Gaste Menos Sem Deixar de Viver</p>
-                        <p>A técnica dos "3 Cortes Inteligentes" elimina o desperdício sem sacrificar a qualidade de vida. Você não vai parar de viver — vai parar de jogar dinheiro fora.</p>
-                        <p class="font-bold mt-2">Meta: Reduzir seus gastos em 20% a 40% sem sentir que está se sacrificando.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Capítulo 3 ao 7 resumidos + Plano de 30 dias -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6">
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-4">🗓️ Capítulo 8: Seu Plano de 30 Dias</h2>
-            <div class="space-y-3 text-sm">
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-gray-100 p-3 font-extrabold text-gray-900">SEMANA 1 — Raio-X Financeiro</div>
-                    <div class="p-3 space-y-2">
-                        <p><strong>Dia 1-2:</strong> Baixe o Diário Financeiro (recursos/ diario-financeiro-30-dias.html). Comece a anotar tudo HOJE.</p>
-                        <p><strong>Dia 3-4:</strong> Identifique seus gastos fixos: aluguel, luz, água, internet, celular, transporte. Anote os valores exatos.</p>
-                        <p><strong>Dia 5-6:</strong> Revise os últimos 3 meses de extrato bancário. Você vai se surpreender com o que encontrar.</p>
-                        <p><strong>Dia 7:</strong> Primeira semana completa de registro. Some tudo e veja: quanto entrou? Quanto saiu? Qual foi seu maior gasto?</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-gray-100 p-3 font-extrabold text-gray-900">SEMANA 2 — Negocie Suas Dívidas</div>
-                    <div class="p-3 space-y-2">
-                        <p><strong>Dia 8:</strong> Acesse registrato.bcb.gov.br e descubra TODAS as suas dívidas registradas. É gratuito.</p>
-                        <p><strong>Dia 9:</strong> Acesse serasa.com.br/limpa-nome e veja as ofertas de negociação.</p>
-                        <p><strong>Dia 10:</strong> Use o Script de WhatsApp (recursos/scripts-negociacao-dividas.html) para a primeira negociação.</p>
-                        <p><strong>Dia 11-12:</strong> Continue negociando. Lembre-se: nunca aceite a primeira oferta.</p>
-                        <p><strong>Dia 13:</strong> Se houver feirão limpa nome na sua cidade, vá pessoalmente com o Script Presencial.</p>
-                        <p><strong>Dia 14:</strong> Comemore cada negociação concluída. Cada real de desconto é um real que ficou no seu bolso.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-gray-100 p-3 font-extrabold text-gray-900">SEMANA 3 — Gaste Menos</div>
-                    <div class="p-3 space-y-2">
-                        <p><strong>Dia 15:</strong> Pegue a Checklist 30 Gastos (recursos/checklist-30-cortes.html) e marque os que se aplicam a você.</p>
-                        <p><strong>Dia 16:</strong> Comece pelos Cortes Nível 1 (Indolores). Cancele as assinaturas que não usa.</p>
-                        <p><strong>Dia 17:</strong> Aplique os Cortes Nível 2 (Trocas). Troque delivery por cozinhar em casa.</p>
-                        <p><strong>Dia 18-19:</strong> Continue registrando tudo no Diário Financeiro. A diferença já deve estar aparecendo.</p>
-                        <p><strong>Dia 20-21:</strong> Avalie os Cortes Nível 3 (Conscientes). O que é possível para sua realidade?</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl overflow-hidden">
-                    <div class="bg-gray-100 p-3 font-extrabold text-gray-900">SEMANA 4 — Construa Seu Futuro</div>
-                    <div class="p-3 space-y-2">
-                        <p><strong>Dia 22:</strong> Use a Calculadora de Reserva (recursos/calculadora-reserva.html) e defina sua meta.</p>
-                        <p><strong>Dia 23:</strong> Abra uma conta separada para a reserva de emergência. Transfira R$ 10 se for o que tem.</p>
-                        <p><strong>Dia 24-25:</strong> Aplique o Método do "Primeiro Boleto": assim que o salário cair, pague-se primeiro.</p>
-                        <p><strong>Dia 26:</strong> Escolha 1 ideia de renda extra do Guia (recursos/guia-50-renda-extra.html).</p>
-                        <p><strong>Dia 27-28:</strong> Pesquise tudo sobre a sua ideia escolhida. Veja quem já faz no seu bairro.</p>
-                        <p><strong>Dia 29:</strong> Faça a primeira venda-teste. Pode ser para um amigo. O importante é começar.</p>
-                        <p><strong>Dia 30:</strong> Revisão completa. Some tudo que economizou e ganhou. Comemore. Você saiu do vermelho.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Capítulo 9 -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg mb-6">
-            <h2 class="text-2xl font-extrabold text-gray-900 mb-4">🔒 Capítulo 9: Como Não Voltar ao Vermelho Nunca Mais</h2>
-            <div class="prose text-gray-700 leading-relaxed space-y-4 text-sm">
-                <div class="bg-blue-50 p-4 rounded-xl">
-                    <p class="font-extrabold text-blue-900 mb-2">REGRA DE OURO #1</p>
-                    <p>Gaste menos do que ganha. Simples assim. Se você ganha R$ 1.500, não pode gastar R$ 1.501. O método existe para te mostrar como fazer isso sem sofrer.</p>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-xl">
-                    <p class="font-extrabold text-blue-900 mb-2">REGRA DE OURO #2</p>
-                    <p>Pague-se primeiro. Assim que o salário cair, separe 20% para sua reserva ANTES de pagar qualquer conta. A conta mais importante do mês é o seu futuro.</p>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-xl">
-                    <p class="font-extrabold text-blue-900 mb-2">REGRA DE OURO #3</p>
-                    <p>Nunca parcele o que você não pode pagar à vista. Parcelamento é uma ferramenta, não uma muleta. Se não tem o dinheiro agora, espere e junte.</p>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-xl">
-                    <p class="font-extrabold text-blue-900 mb-2">REGRA DE OURO #4</p>
-                    <p>Continue registrando. O Diário Financeiro não é só para os primeiros 30 dias. Crie o hábito de olhar para o seu dinheiro toda semana. 5 minutos, uma vez por semana.</p>
-                </div>
-                <div class="bg-blue-50 p-4 rounded-xl">
-                    <p class="font-extrabold text-blue-900 mb-2">REGRA DE OURO #5</p>
-                    <p>Sua reserva de emergência é sagrada. Não é para tênis novo, não é para viagem, não é para "oportunidade imperdível". É para quando você perder o emprego ou o fogão quebrar.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-green-100 border-2 border-green-400 rounded-2xl p-6 text-center">
-            <span class="text-5xl block mb-3">🎉</span>
-            <h2 class="text-2xl font-extrabold text-green-900 mb-2">Você completou o manual!</h2>
-            <p class="text-green-800 text-sm">Agora é com você. O método funciona — mas só se você agir.</p>
-            <p class="text-green-700 text-sm font-bold mt-2">Comece hoje. Seu eu do futuro vai te agradecer.</p>
+        <div class="box-exercicio">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-wide mb-1">✏️ Exercício de Fixação</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O Desafio dos 7 Dias</p>
+            <p class="text-sm text-gray-400">Durante os próximos 7 dias, anote <strong>cada centavo</strong> que sai da sua conta — incluindo o cafezinho de R$ 2. Use o bloco de notas do celular. Formato:</p>
+            <p class="text-xs text-gray-500 font-mono bg-dark-800 p-3 rounded-lg mt-2">15/05 | +R$ 1.800 | Salário<br>15/05 | -R$ 5,00 | Café e pão de queijo<br>15/05 | -R$ 18,50 | Delivery almoço<br>15/05 | -R$ 12,00 | Uber para o trabalho</p>
+            <p class="text-sm text-gray-400 mt-2">Ao final dos 7 dias, classifique cada gasto como: <strong>E</strong> (Essencial — contas, aluguel, comida básica), <strong>Q</strong> (Quero — delivery, lazer, roupas) ou <strong>S</strong> (Supérfluo — gastos que você nem lembrava). Some os Supérfluos e prepare-se: esse número costuma chocar.</p>
         </div>
     </div>
+</div>
+
+<!-- MÓDULO 2: O MAPA DA MINA -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">02</span></div>
+        <h2 class="text-xl font-extrabold text-white">Módulo 2: O Mapa da Mina</h2>
+    </div>
+    <p class="text-sm text-gray-400 mb-6">Criando um orçamento sem sofrimento (Método 50-30-20 simplificado)</p>
+
+    <div class="prose">
+        <div class="box-objetivo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">🎯 Objetivo de Aprendizagem</p>
+            <p class="text-sm text-gray-300">Ao final deste módulo, você saberá criar um orçamento realista que <strong>não depende de força de vontade</strong>. Você dominará o método 50-30-20 adaptado à realidade brasileira e saberá exatamente quanto destinar para cada área da sua vida, sem abrir mão do que importa.</p>
+        </div>
+
+        <h3>Orçamento não é dieta — é mapa</h3>
+        <p>A palavra "orçamento" tem o mesmo efeito que "dieta" para a maioria das pessoas: sensação de restrição, sofrimento e fracasso iminente. Mas orçamento não é sobre cortar tudo que te dá prazer. <strong>Orçamento é sobre decidir, com consciência, para onde seu dinheiro vai</strong> antes que ele decida sozinho.</p>
+        <p>Pense assim: se você vai viajar para um lugar que nunca foi, você usa GPS. O orçamento é o GPS do seu dinheiro. Sem ele, você até pode chegar a algum lugar — mas provavelmente vai se perder no caminho.</p>
+
+        <h3>O Método 50-30-20 (Versão Realidade Brasileira)</h3>
+        <p>O método 50-30-20 foi popularizado pela senadora americana Elizabeth Warren, mas aqui vamos adaptá-lo para a realidade de quem ganha até 2 salários mínimos no Brasil:</p>
+        <p><strong>50% para Necessidades Essenciais.</strong> Aluguel, água, luz, mercado básico, transporte para o trabalho, remédios essenciais. Aqui entra o que mantém seu corpo e seu emprego funcionando. Se você gasta mais de 50% com essenciais (o que é comum para quem ganha pouco), não se culpe — o objetivo é chegar perto disso, não atingir a perfeição.</p>
+        <p><strong>30% para Qualidade de Vida.</strong> Delivery, streaming, lazer no fim de semana, aquela roupa nova, o presente para alguém. Sim, <strong>30% é para viver bem</strong>. Cortar essa categoria a zero não funciona — você aguenta 2 semanas e explode gastando o dobro. O segredo é definir um teto e respeitá-lo.</p>
+        <p><strong>20% para o Futuro.</strong> Reserva de emergência, quitar dívidas, investimentos. Este é o dinheiro que constrói sua liberdade. No começo, se 20% for impossível, comece com 5%. O importante é o hábito de "pagar a si mesmo primeiro", não o valor.</p>
+
+        <h3>A Regra de Ouro: Pague-se Primeiro</h3>
+        <p>A maioria das pessoas paga todas as contas e, <strong>se sobrar</strong>, guarda. Esse é o caminho certo para nunca sobrar. A inversão é simples e poderosa: assim que o salário cair, separe o percentual do Futuro <strong>antes de qualquer outra coisa</strong>. É como o aviso de segurança do avião: coloque sua máscara primeiro, depois ajude os outros.</p>
+        <p>Uma analogia que funciona: quando você vai ao mercado com fome, compra mais besteira. Quando você paga as contas antes de separar seu futuro, "come" seu futuro sem perceber. Separe primeiro, gaste depois.</p>
+
+        <h3>Gastos Sazonais: o vilão silencioso do orçamento</h3>
+        <p>IPVA em janeiro. Material escolar em fevereiro. Presentes em dezembro. Aniversários. Manutenção do carro. Esses gastos não são "emergências" — eles são <strong>previsíveis</strong>. Só pegam você de surpresa porque não estavam no mapa.</p>
+        <p>A técnica é simples: pegue o valor anual do gasto, divida por 12 e guarde mensalmente. IPVA de R$ 600 = R$ 50/mês. Material escolar de R$ 300 = R$ 25/mês. Assim, quando chegar a data, o dinheiro já está lá.</p>
+
+        <div class="box-exemplo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">📋 Exemplo Prático</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O caso da Ana, que achava que 50-30-20 era impossível com R$ 1.500</p>
+            <p class="text-sm text-gray-400">Ana ganha R$ 1.500 como recepcionista. Aluguel e contas consomem R$ 950 (63% — acima do ideal, mas comum). Ela adaptou o método para a realidade dela: 60-25-15.</p>
+            <ul class="text-sm text-gray-400">
+                <li><strong>Essenciais (60% = R$ 900):</strong> aluguel R$ 550, luz R$ 80, água R$ 40, mercado R$ 200, transporte R$ 30</li>
+                <li><strong>Qualidade de vida (25% = R$ 375):</strong> streaming R$ 25, cabelo R$ 60, delivery fim de semana R$ 120, lazer R$ 120, reserva para presentes R$ 50</li>
+                <li><strong>Futuro (15% = R$ 225):</strong> reserva de emergência R$ 150, quitar dívida antiga R$ 75</li>
+            </ul>
+            <p class="text-sm text-gray-400 mt-2">Com esse mapa, Ana descobriu que podia guardar R$ 225/mês sem passar fome nem deixar de viver. Em 5 meses, ela tinha R$ 1.125 — sua primeira reserva.</p>
+        </div>
+
+        <div class="box-exercicio">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-wide mb-1">✏️ Exercício de Fixação</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">Crie Seu Mapa Financeiro em 15 Minutos</p>
+            <p class="text-sm text-gray-400">Pegue papel e caneta (ou bloco de notas do celular). Liste sua renda mensal líquida. Em seguida, classifique todos os seus gastos dos últimos 30 dias em três colunas: Essenciais, Qualidade de Vida e Futuro. Some cada coluna e calcule o percentual. Compare com 50-30-20. Onde está o desequilíbrio? Ajuste <strong>apenas uma</strong> categoria para começar — tente mover 2% de Qualidade de Vida para Futuro. Pequeno, sustentável, realista.</p>
+        </div>
+    </div>
+</div>
+
+<!-- MÓDULO 3: O ESCUDO FINANCEIRO -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">03</span></div>
+        <h2 class="text-xl font-extrabold text-white">Módulo 3: O Escudo Financeiro</h2>
+    </div>
+    <p class="text-sm text-gray-400 mb-6">Como sair das dívidas e montar sua primeira reserva de emergência</p>
+
+    <div class="prose">
+        <div class="box-objetivo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">🎯 Objetivo de Aprendizagem</p>
+            <p class="text-sm text-gray-300">Ao final deste módulo, você terá uma estratégia clara para negociar e quitar suas dívidas pagando o mínimo possível, além de um plano concreto para juntar R$ 1.000 de reserva de emergência em até 3 meses. Você entenderá por que a reserva vem <strong>antes</strong> de qualquer investimento.</p>
+        </div>
+
+        <h3>A anatomia da dívida: o que ninguém te contou</h3>
+        <p>Dívida não é falha de caráter. No Brasil, 63% das famílias estão endividadas. O sistema financeiro foi desenhado para te manter pagando juros. Mas aqui está o segredo que os bancos não querem que você saiba: <strong>depois de 90 dias sem pagar, o banco já contabilizou sua dívida como "perda provável"</strong>. Isso significa que ele já aceita receber bem menos do que o valor original.</p>
+        <p>Pense nos juros como um incêndio. Enquanto você joga água (dinheiro) no fogo errado, o incêndio se espalha. A estratégia correta não é apagar todos os focos ao mesmo tempo — é eliminar primeiro o que está mais perto do botijão de gás.</p>
+
+        <h3>Estratégia Bola de Neve (Snowball) — Priorize o psicológico</h3>
+        <p>Liste todas as suas dívidas da <strong>menor para a maior</strong>, ignorando os juros. Pague o mínimo em todas, mas concentre toda sua energia (e dinheiro extra) na menor dívida. Quando ela for quitada, você pega o dinheiro que usava nela e joga na próxima. É como uma bola de neve descendo a montanha: começa pequena e vai ganhando força.</p>
+        <p>Por que funciona? Porque <strong>cada dívida quitada é uma vitória psicológica</strong>. E vitórias geram impulso. Se você começar pela dívida grande (com mais juros), vai levar meses para ver resultado. A maioria desiste no meio do caminho.</p>
+
+        <h3>Negociando dívidas: os scripts que funcionam</h3>
+        <p>Você não precisa aceitar a primeira oferta do banco. Use estas três frases mágicas ao telefone ou WhatsApp:</p>
+        <p><strong>1. "Qual o valor máximo de desconto para pagamento à vista hoje?"</strong> — Isso sinaliza que você quer resolver, mas não é trouxa.</p>
+        <p><strong>2. "Existe alguma campanha especial, tipo feirão limpa nome?"</strong> — Essa palavra mágica ("campanha") aciona ofertas que o atendente não pode oferecer se você não perguntar.</p>
+        <p><strong>3. "Se não conseguirmos fechar hoje, vou aguardar o próximo feirão do Serasa."</strong> — O atendente sabe que, no feirão, o banco recebe ainda menos. Ele prefere fechar com você.</p>
+        <p class="text-xs text-gray-500">💡 Os scripts completos (WhatsApp, telefone, e-mail e presencial) estão no material complementar: <strong>Scripts Prontos para Negociar Dívidas</strong>.</p>
+
+        <h3>Sua reserva de emergência: a parede que protege seu castelo</h3>
+        <p>Reserva de emergência é um dinheiro guardado para <strong>imprevistos reais</strong>: perdeu o emprego, quebrou o celular, remédio urgente, conserto do fogão. Não é para tênis novo, viagem ou festa.</p>
+        <p>A meta mínima é R$ 1.000. A meta ideal é 3 meses dos seus gastos mensais. A meta avançada é 6 meses. Mas não se assuste com os números grandes — <strong>comece com R$ 1.000</strong>, que é uma meta realista e alcançável para quem ganha pouco.</p>
+        <p>Onde guardar? Três opções em ordem de qualidade: Tesouro Selic (rende ~12% ao ano, pode sacar quando quiser), CDB com liquidez diária como Nubank/Inter/PicPay (rende ~11% ao ano, resgate 24h) ou, em último caso, poupança (rende ~6% ao ano — é ruim, mas melhor que nada).</p>
+        <p><strong>Nunca guarde dinheiro em casa.</strong> Além do risco de furto, a inflação corrói o valor parado. R$ 100 hoje compram menos coisas que R$ 100 compravam no ano passado. Dinheiro parado é dinheiro derretendo.</p>
+
+        <div class="box-exemplo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">📋 Exemplo Prático</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O caso da Maria, que negociou R$ 4.200 de dívida por R$ 380</p>
+            <p class="text-sm text-gray-400">Maria devia R$ 4.200 no cartão de crédito de um banco que ela nem usava mais. A dívida tinha 3 anos. Ela ligou usando o script do Módulo 3 e descobriu que a dívida já tinha sido vendida para uma empresa de cobrança. Ofereceu R$ 380 à vista (menos de 10%). A atendente riu, disse que era impossível, e ofereceu R$ 1.200. Maria disse calmamente: "Então vou aguardar o próximo feirão do Serasa. Obrigada."</p>
+            <p class="text-sm text-gray-400 mt-2">A atendente pediu 2 minutos e voltou com R$ 450. Maria fechou por R$ 380. <strong>Economizou R$ 3.820.</strong> A dívida foi baixada e o nome dela saiu do Serasa em 5 dias.</p>
+        </div>
+
+        <div class="box-exercicio">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-wide mb-1">✏️ Exercício de Fixação</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">Liste e Ataque</p>
+            <p class="text-sm text-gray-400">Abra o app do seu banco e liste <strong>todas</strong> as suas dívidas ativas — valor, banco, taxa de juros (se souber) e tempo de atraso (se houver). Ordene da menor para a maior. Defina um valor realista que você pode pagar por mês para quitar a menor delas. Se tiver nome sujo, acesse o Serasa (gratuito) e veja as ofertas de negociação. Ligue para o <strong>menor</strong> credor usando o script acima e tente negociar.</p>
+        </div>
+    </div>
+</div>
+
+<!-- MÓDULO 4: O DINHEIRO TRABALHANDO -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">04</span></div>
+        <h2 class="text-xl font-extrabold text-white">Módulo 4: O Dinheiro Trabalhando</h2>
+    </div>
+    <p class="text-sm text-gray-400 mb-6">Introdução básica e segura aos investimentos para quem tem medo de perder</p>
+
+    <div class="prose">
+        <div class="box-objetivo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">🎯 Objetivo de Aprendizagem</p>
+            <p class="text-sm text-gray-300">Ao final deste módulo, você entenderá os conceitos fundamentais de inflação, juros compostos e risco, e conhecerá as opções de investimento seguras disponíveis para quem está começando do zero. Você perderá o medo de investir e fará seu primeiro aporte com confiança.</p>
+        </div>
+
+        <h3>Inflação explicada com pão francês</h3>
+        <p>Em janeiro de 2020, o pão francês custava R$ 0,50 em média. Hoje custa R$ 0,90. Seu dinheiro parado na conta corrente continuou sendo os mesmos R$ 0,50 — mas ele já não compra mais o pão. Isso é a inflação: <strong>a perda silenciosa do poder de compra do seu dinheiro ao longo do tempo</strong>.</p>
+        <p>Inflação é como um ladrão invisível que entra na sua casa todo mês e tira moedinhas do seu cofrinho. Você não vê, não ouve, mas quando vai contar, tem menos dinheiro. A única forma de combatê-la é fazendo o dinheiro render <strong>acima da inflação</strong>.</p>
+
+        <h3>Juros compostos: a força mais poderosa do universo (Einstein estava certo)</h3>
+        <p>Existe uma história — provavelmente apócrifa, mas didaticamente perfeita — de que Albert Einstein chamou os juros compostos de "a oitava maravilha do mundo". Verdade ou não, o conceito é transformador.</p>
+        <p>Juros compostos são <strong>juros sobre juros</strong>. É o dinheiro fazendo filhotes, e os filhotes fazendo mais filhotes. Exemplo concreto:</p>
+        <ul>
+            <li>Você investe R$ 100 por mês a 12% ao ano (Tesouro Selic)</li>
+            <li>Em 1 ano: R$ 1.273 (você pôs R$ 1.200, ganhou R$ 73)</li>
+            <li>Em 5 anos: R$ 8.167 (você pôs R$ 6.000, ganhou R$ 2.167)</li>
+            <li>Em 20 anos: R$ 99.915 (você pôs R$ 24.000, ganhou R$ 75.915)</li>
+        </ul>
+        <p>Perceba o salto. Do ano 1 para o ano 20, seus aportes multiplicaram por 20, mas seus ganhos multiplicaram por <strong>mais de 1.000</strong>. Isso é o tempo trabalhando a seu favor. Quanto antes começar, mais poderoso o efeito.</p>
+
+        <h3>Risco: a palavra que assusta (mas não deveria)</h3>
+        <p>Toda vez que alguém diz "investir é arriscado", pergunte: <strong>comparado a quê?</strong> Deixar o dinheiro parado na conta corrente também é arriscado — você tem 100% de certeza de que ele vai perder poder de compra. A inflação é um risco garantido.</p>
+        <p>Existem investimentos para todos os perfis. Para quem está começando e tem medo, a resposta é simples: <strong>Tesouro Selic e CDBs com garantia do FGC</strong>. Ambos são garantidos — pelo governo, no caso do Tesouro, ou pelo Fundo Garantidor de Créditos (até R$ 250 mil por CPF), no caso dos CDBs.</p>
+
+        <h3>O cardápio de investimentos para iniciantes (do mais seguro ao menos seguro)</h3>
+        <p><strong>🥇 Tesouro Selic (risco: quase zero).</strong> É emprestar dinheiro para o governo brasileiro. O governo pode atrasar? Em teoria, sim, mas se o governo brasileiro quebrar, o problema será bem maior que seu investimento. Rende ~12% ao ano. Pode sacar a qualquer momento, até fim de semana. Ideal para reserva de emergência.</p>
+        <p><strong>🥈 CDB com liquidez diária (risco: baixíssimo).</strong> É emprestar dinheiro para um banco. Se o banco quebrar, o FGC cobre até R$ 250 mil por CPF. Rende ~11% ao ano. Resgate instantâneo. Ideal para quem quer praticidade no mesmo app.</p>
+        <p><strong>🥉 Tesouro IPCA+ (risco: baixo).</strong> Tesouro que paga a inflação + uma taxa fixa (ex: IPCA + 6%). Ideal para metas de médio/longo prazo. A diferença para o Selic: se você sacar antes do vencimento, pode ganhar menos do que esperava.</p>
+        <p><strong>⚠️ NÃO COMEÇE POR AQUI:</strong> Ações, fundos imobiliários, criptomoedas, day trade. Isso NÃO é investimento para iniciante. É para quem já tem reserva de emergência formada e entende os riscos. Quem te prometer dinheiro fácil e rápido está mentindo ou vendendo curso.</p>
+
+        <div class="box-exemplo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">📋 Exemplo Prático</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O caso do Pedro, que tinha medo até do nome "investimento"</p>
+            <p class="text-sm text-gray-400">Pedro, 28 anos, motoboy, cresceu ouvindo que "investir é coisa de rico". Quando juntou R$ 1.000, deixou parado na conta corrente por 8 meses "por segurança". Nesses 8 meses, a inflação comeu ~4% do poder de compra. Se tivesse colocado no Tesouro Selic, teria ~R$ 1.080. Ele perdeu R$ 80 por medo. Depois de aprender o básico, ele abriu conta em uma corretora pelo celular em 5 minutos e fez seu primeiro aporte. Hoje, 2 anos depois, tem R$ 8.500 entre reserva e investimentos — ele mesmo se surpreendeu.</p>
+        </div>
+
+        <div class="box-exercicio">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-wide mb-1">✏️ Exercício de Fixação</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">Seu Primeiro Aporte (Mesmo que seja R$ 10)</p>
+            <p class="text-sm text-gray-400">Abra uma conta gratuita em qualquer banco digital (Nubank, Inter, PicPay) ou corretora (Clear, Rico, XP). Transfira <strong>qualquer valor</strong> — R$ 10, R$ 30, R$ 50 — para o Tesouro Selic ou CDB com liquidez diária. O objetivo não é o valor. É a ação. É perder o medo do botão "investir". Depois de feito, anote como se sentiu — e observe nos próximos dias como o dinheiro vai crescendo, centavo por centavo.</p>
+        </div>
+    </div>
+</div>
+
+<!-- MÓDULO 5: LIBERDADE E FUTURO -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-copper-500/10 rounded-full flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-bold text-sm">05</span></div>
+        <h2 class="text-xl font-extrabold text-white">Módulo 5: Liberdade e Futuro</h2>
+    </div>
+    <p class="text-sm text-gray-400 mb-6">Planejamento de metas e como manter a disciplina a longo prazo</p>
+
+    <div class="prose">
+        <div class="box-objetivo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">🎯 Objetivo de Aprendizagem</p>
+            <p class="text-sm text-gray-300">Ao final deste módulo, você terá definido metas financeiras de curto, médio e longo prazo, saberá usar o sistema de automação financeira para não depender de força de vontade, e terá ferramentas concretas para se manter na rota mesmo quando a motivação inicial passar.</p>
+        </div>
+
+        <h3>Disciplina &gt; Motivação</h3>
+        <p>Motivação é um sentimento. Sentimentos são passageiros — eles vêm e vão como o vento. <strong>Disciplina é um sistema.</strong> Você não escova os dentes porque está motivado a ter dentes limpos; você escova porque faz parte do seu sistema diário. Finanças funcionam do mesmo jeito.</p>
+        <p>A pergunta não é "como eu me sinto motivado a economizar?" — a pergunta certa é <strong>"qual sistema posso criar para que economizar aconteça automaticamente?"</strong></p>
+
+        <h3>Metas que funcionam: o método SMART financeiro</h3>
+        <p>"Quero ficar rico" não é meta — é sonho. Meta que funciona segue 5 critérios:</p>
+        <ul>
+            <li><strong>Específica:</strong> "Quero juntar R$ 6.000 para dar entrada em uma moto" — e não "quero ter dinheiro"</li>
+            <li><strong>Mensurável:</strong> R$ 500 por mês durante 12 meses</li>
+            <li><strong>Alcançável:</strong> R$ 500 é 25% do meu salário de R$ 2.000. Apertado, mas possível</li>
+            <li><strong>Relevante:</strong> A moto reduz meu tempo de transporte em 1h30 por dia</li>
+            <li><strong>Temporal:</strong> 12 meses — com checkpoints mensais para medir o progresso</li>
+        </ul>
+
+        <h3>Os 4 potes: metas de curto, médio e longo prazo</h3>
+        <p><strong>Pote 1 — Alívio (curto prazo, 0-12 meses):</strong> Quitar a dívida do cartão. Juntar R$ 1.000 de reserva. Pagar o IPVA. A função deste pote é tirar peso das costas.</p>
+        <p><strong>Pote 2 — Conquistas (médio prazo, 1-5 anos):</strong> Dar entrada em um carro. Fazer um curso técnico. Trocar o celular. Juntar para casar. A função deste pote é melhorar sua vida material.</p>
+        <p><strong>Pote 3 — Independência (longo prazo, 5-20 anos):</strong> Comprar um imóvel. Ter 6 meses de gastos guardados. A função deste pote é construir sua base de segurança.</p>
+        <p><strong>Pote 4 — Aposentadoria (muito longo prazo, 20+ anos):</strong> Se você depende do INSS, já sabe que o valor é baixo. Investir R$ 100/mês por 30 anos a 12% ao ano resulta em aproximadamente R$ 350 mil. Você não precisa investir muito — precisa começar cedo e ser consistente.</p>
+
+        <h3>Automatize ou fracasse</h3>
+        <p>Força de vontade é um recurso limitado. Você acorda com 100%, mas cada decisão que toma ao longo do dia gasta um pouco. No fim do dia, quando o delivery está a um clique de distância, sua força de vontade já está esgotada.</p>
+        <p>A solução é <strong>remover a decisão do processo</strong>: agende transferências automáticas no dia do pagamento. Programe o débito automático para contas fixas. Configure alertas no celular para revisar o orçamento todo domingo às 10h.</p>
+        <p>Seu cérebro vai agradecer por não ter que decidir todo mês se guarda ou não guarda dinheiro. O sistema decide por você. Você só obedece.</p>
+
+        <h3>Renda Extra: o acelerador de metas</h3>
+        <p>Enquanto a economia ataca o lado dos gastos, a renda extra ataca o lado dos ganhos. E o melhor momento para buscar renda extra é agora — não quando você "precisar".</p>
+        <p>Três princípios para renda extra que funciona: (1) use o que você já sabe fazer — habilidade subutilizada é dinheiro parado; (2) comece com 2 horas por dia — não abandone o emprego fixo para "empreender"; (3) valide rápido: se em 30 dias não gerou nenhum real, pivote e teste outra ideia.</p>
+        <p class="text-xs text-gray-500">💡 O material complementar <strong>50 Ideias de Renda Extra</strong> traz opções organizadas por categoria e potencial de ganho.</p>
+
+        <h3>O Ritual de 5 Minutos que mantém tudo nos trilhos</h3>
+        <p>Todo domingo, às 10h, você vai fazer isto por 5 minutos:</p>
+        <ul>
+            <li>Abra o app do banco — veja o saldo</li>
+            <li>Revise os gastos da semana — alguma surpresa?</li>
+            <li>Confira o progresso das metas — está no ritmo certo?</li>
+            <li>Ajuste <strong>uma</strong> coisa para a próxima semana</li>
+        </ul>
+        <p>5 minutos. Todo domingo. Sem desculpa. Este ritual simples é o que separa quem transforma as finanças de quem só aprende na teoria. Em 3 meses, você terá 12 revisões — e seu cérebro já terá internalizado o hábito.</p>
+
+        <div class="box-exemplo">
+            <p class="text-xs font-bold text-copper-400 uppercase tracking-wide mb-1">📋 Exemplo Prático</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">O caso da Carla, que saiu de R$ 0 para R$ 15.000 em 2 anos com renda de R$ 2.200</p>
+            <p class="text-sm text-gray-400">Carla, 35 anos, auxiliar administrativa, 2 filhos. Quando começou, não tinha nada guardado e devia R$ 800 no cartão. Aplicou o método: fez o Raio-X (Módulo 1), cortou R$ 180 de gastos invisíveis, negociou a dívida por R$ 200 (Módulo 3), definiu meta de guardar R$ 300/mês (Módulo 2), colocou no Tesouro Selic (Módulo 4), e todo domingo revisava (Módulo 5).</p>
+            <p class="text-sm text-gray-400 mt-2">Nos fins de semana, começou a fazer bolos de pote para vender na vizinhança — R$ 200 extras por mês. Em 24 meses: R$ 15.000 guardados entre reserva e investimentos. Ela não ganhou na loteria. Não recebeu herança. Só seguiu o método.</p>
+        </div>
+
+        <div class="box-exercicio">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-wide mb-1">✏️ Exercício de Fixação</p>
+            <p class="text-sm text-gray-300 font-bold mb-2">Seu Plano de 3 Metas</p>
+            <p class="text-sm text-gray-400">Defina 3 metas SMART no seu bloco de notas ou caderno: uma de curto prazo (até 12 meses), uma de médio prazo (1-5 anos) e uma de longo prazo (5+ anos). Para cada uma, escreva: o valor exato, o prazo, quanto precisa guardar por mês, e por que essa meta é importante para você. Cole em algum lugar visível (espelho, geladeira, fundo de tela do celular). Agende 5 minutos no domingo às 10h para seu primeiro Ritual Semanal.</p>
+        </div>
+    </div>
+</div>
+
+<!-- PLANO 30 DIAS -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6 page-break">
+    <h2 class="text-xl font-extrabold text-white mb-2">📅 Plano de 30 Dias</h2>
+    <p class="text-sm text-gray-400 mb-4">Marque conforme completar cada dia. Seu progresso fica salvo automaticamente:</p>
+    <div id="checklist-30dias" class="space-y-1 text-sm"></div>
+    <div class="mt-4 p-3 bg-dark-600 rounded-xl text-center">
+        <p class="text-sm font-bold text-white">Progresso: <span id="pct-plano" class="text-copper-400">0</span>%</p>
+        <div class="h-2 bg-dark-500 rounded-full mt-2 overflow-hidden"><div id="barra-plano" class="h-full copper-gradient rounded-full transition-all duration-300" style="width:0%"></div></div>
+    </div>
+</div>
+
+<!-- COMO NÃO VOLTAR AO VERMELHO -->
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600 mb-6">
+    <h2 class="text-xl font-extrabold text-white mb-4">🔒 Como Não Voltar ao Vermelho</h2>
+    <div class="prose">
+        <p>O maior risco depois de organizar suas finanças não é um imprevisto — é a <strong>complacência</strong>. Quando a dor financeira passa, a vigilância baixa. É aí que os velhos hábitos voltam.</p>
+        <p>Três proteções permanentes:</p>
+        <p><strong>1. Automatize antes de confiar em si mesmo.</strong> Débito automático para contas fixas. Agendamento recorrente para investimentos. Se depender de você lembrar, uma hora você esquece.</p>
+        <p><strong>2. O "Período de Espera de 48h".</strong> Para qualquer compra acima de R$ 100 que não seja essencial, espere 48 horas antes de decidir. O cérebro impulsivo age em segundos. O cérebro racional precisa de tempo. Na maioria das vezes, depois de 2 dias você percebe que não precisava daquilo.</p>
+        <p><strong>3. Revise suas metas a cada 3 meses.</strong> Suas prioridades mudam. Seu orçamento precisa acompanhar. O ritual de revisão trimestral mantém o mapa atualizado.</p>
+    </div>
+</div>
+
+</div>
+
+<script>
+const dias=['Dia 1: Anotar saldo atual e listar TODAS as dívidas','Dia 2: Começar o Desafio dos 7 Dias (Módulo 1)','Dia 3: Anotar cada gasto — café, delivery, tudo','Dia 4: Identificar 3 gastos invisíveis recorrentes','Dia 5: Cancelar 1 assinatura não usada','Dia 6: Dia zero delivery — cozinhar em casa','Dia 7: Fechar semana: somar gastos por categoria (E, Q, S)','Dia 8: Criar seu mapa 50-30-20 (Módulo 2)','Dia 9: Abrir conta digital gratuita','Dia 10: Agendar débito automático de contas fixas','Dia 11: Listar dívidas da menor para a maior','Dia 12: Ligar para o menor credor e negociar','Dia 13: Transferir R$ 30 para reserva de emergência','Dia 14: Fechar 2ª semana — comparar com a 1ª','Dia 15: Definir meta SMART de curto prazo','Dia 16: Automatizar aporte mensal (qualquer valor)','Dia 17: Pesquisar Tesouro Selic no app do banco','Dia 18: Fazer primeiro aporte em Tesouro Selic ou CDB','Dia 19: Mapear gastos sazonais (IPVA, presentes, material)','Dia 20: Negociar 2ª dívida — usar script do Módulo 3','Dia 21: Fechar 3ª semana — já vê diferença?','Dia 22: Testar 1 ideia de renda extra por 2h','Dia 23: Definir meta SMART de médio prazo','Dia 24: Ajustar orçamento: mover 2% para o Futuro','Dia 25: Revisar progresso das metas','Dia 26: Comemorar pequenas vitórias (sem gastar)','Dia 27: Ensinar 1 pessoa sobre o método','Dia 28: Fazer renda extra — meta: R$ 30','Dia 29: Definir meta SMART de longo prazo','Dia 30: BALANÇO FINAL — quanto economizou + ganhou? 💰'];
+const container=document.getElementById('checklist-30dias');
+dias.forEach((d,i)=>{const div=document.createElement('div');div.className='flex items-start gap-2 p-2 rounded-lg hover:bg-dark-600 cursor-pointer transition';div.onclick=function(){const cb=this.querySelector('input');cb.checked=!cb.checked;atualizarPlano()};div.innerHTML=`<input type="checkbox" id="plano-d${i}" onchange="atualizarPlano()" class="mt-0.5 w-4 h-4 text-copper-400 rounded focus:ring-copper-500/30 flex-shrink-0"><label for="plano-d${i}" class="text-sm text-gray-300 cursor-pointer">${d}</label>`;container.appendChild(div)});
+function atualizarPlano(){const all=document.querySelectorAll('#checklist-30dias input');const checked=document.querySelectorAll('#checklist-30dias input:checked');const pct=Math.round((checked.length/all.length)*100);document.getElementById('pct-plano').textContent=pct;document.getElementById('barra-plano').style.width=pct+'%';const state={};all.forEach(cb=>state[cb.id]=cb.checked);localStorage.setItem('plano_30dias',JSON.stringify(state))}
+(function(){const saved=JSON.parse(localStorage.getItem('plano_30dias')||'{}');Object.entries(saved).forEach(([id,checked])=>{const cb=document.getElementById(id);if(cb&&checked)cb.checked=true});atualizarPlano()})();
+</script>
 </body>
 </html>

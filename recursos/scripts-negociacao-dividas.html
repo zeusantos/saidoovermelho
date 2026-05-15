@@ -1,142 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Scripts Prontos para Negociar Cada Tipo de Dívida | Saia do Vermelho</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts Negociação Dívidas | Saia do Vermelho</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>@media print { body { background: white !important; } .no-print { display: none !important; } }</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{copper:{50:'#FDF8F5',100:'#F5E6DE',200:'#E8C4B4',300:'#D4A08B',400:'#C07B5E',500:'#A8634A',600:'#8B4E3A',700:'#6E3A2A',800:'#4E261A',900:'#2E140D'},dark:{800:'#0D0D0D',700:'#141414',600:'#1A1A1A',500:'#333333',400:'#666666'}},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+    <style>.copper-gradient{background:linear-gradient(135deg,#C07B5E,#D4A08B,#C07B5E)}@media print{body{background:#0D0D0D!important}.no-print{display:none!important}}</style>
 </head>
-<body class="bg-gray-100 font-sans antialiased">
-    <div class="max-w-2xl mx-auto p-4 print:p-0">
-        <div class="bg-gradient-to-r from-green-700 to-green-500 text-white rounded-2xl p-8 mb-6 text-center no-print">
-            <h1 class="text-3xl font-extrabold mb-2">📋 5 Scripts Prontos para Negociar Dívidas</h1>
-            <p class="text-green-100">O que falar em cada canal para conseguir até 90% de desconto</p>
-            <button onclick="window.print()" class="mt-4 bg-white text-green-700 font-bold px-6 py-2 rounded-xl hover:bg-green-50 transition">🖨️ Imprimir / Salvar como PDF</button>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h1 class="text-2xl font-extrabold text-gray-900 mb-4 hidden print:block">📋 5 Scripts Prontos para Negociar Dívidas</h1>
+<body class="bg-dark-800 text-gray-300 font-sans antialiased">
+<div class="max-w-2xl mx-auto p-4">
+<div class="copper-gradient text-white rounded-2xl p-6 mb-6 text-center no-print shadow-lg"><h1 class="text-2xl font-extrabold mb-1">📋 5 Scripts para Negociar Dívidas</h1><p class="text-white/80 text-sm">Consiga até 90% de desconto em cada canal</p><button onclick="window.print()" class="mt-4 bg-white text-copper-600 font-bold px-5 py-2 rounded-xl hover:bg-copper-50 transition text-sm">🖨️ Imprimir</button></div>
 
-            <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mb-8">
-                <p class="font-bold text-red-800 text-sm mb-1">⚠️ LEIA ANTES DE USAR OS SCRIPTS</p>
-                <p class="text-red-700 text-sm">Nunca aceite a primeira oferta. Sempre peça um desconto maior. Se não tiver o dinheiro para pagar à vista, já chegue com uma proposta de parcelamento que você consegue pagar.</p>
-            </div>
-
-            <!-- Script 1: WhatsApp -->
-            <div class="border-2 border-green-200 rounded-2xl p-6 mb-6">
-                <div class="flex items-center gap-2 mb-4"><span class="text-3xl">📱</span><h2 class="text-xl font-extrabold text-gray-900">SCRIPT 1: WhatsApp (Dívida de Cartão de Crédito)</h2></div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm leading-relaxed space-y-3 font-mono">
-                    <p class="font-bold text-green-800">📋 Quando usar:</p>
-                    <p>Quando o banco ou operadora do cartão entrar em contato pelo WhatsApp oferecendo acordo, ou quando você encontrar um número oficial de renegociação no app do banco.</p>
-                    <p class="font-bold text-green-800">📋 O que digitar:</p>
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 italic text-gray-700">
-                        <p>Olá, boa tarde!</p>
-                        <p>Recebi uma oferta de negociação da minha dívida do cartão [NOME DO BANCO] e gostaria de entender melhor.</p>
-                        <p>Meu débito atual é de aproximadamente R$ [VALOR].</p>
-                        <p>Quero muito quitar essa dívida, mas no momento só tenho R$ [VALOR QUE VOCÊ TEM — sugestão: 10% a 20% do total] disponível.</p>
-                        <p>Existe a possibilidade de fecharmos nesse valor para pagamento à vista? Ou qual a melhor oferta que vocês conseguem?</p>
-                        <p>Fico no aguardo. Obrigado(a)!</p>
-                    </div>
-                    <p class="font-bold text-green-800">🔑 Por que funciona:</p>
-                    <p>A dívida já foi vendida para uma empresa de cobrança por centavos. O banco aceita 10-20% do valor original porque já considerou essa dívida como perda. Você NÃO está pedindo favor — está oferecendo dinheiro real por uma dívida que eles já deram como perdida.</p>
-                </div>
-            </div>
-
-            <!-- Script 2: Telefone -->
-            <div class="border-2 border-green-200 rounded-2xl p-6 mb-6">
-                <div class="flex items-center gap-2 mb-4"><span class="text-3xl">📞</span><h2 class="text-xl font-extrabold text-gray-900">SCRIPT 2: Telefone (Dívida Bancária / Empréstimo)</h2></div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm leading-relaxed space-y-3 font-mono">
-                    <p class="font-bold text-green-800">📋 Quando usar:</p>
-                    <p>Para negociar empréstimo pessoal, cheque especial ou dívida diretamente com o banco pelo telefone.</p>
-                    <p class="font-bold text-green-800">📋 O que falar:</p>
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 italic text-gray-700">
-                        <p>— Alô, boa tarde. Meu nome é [SEU NOME] e estou ligando para negociar uma dívida que tenho com [NOME DO BANCO].</p>
-                        <p>— Meu CPF é [XXX.XXX.XXX-XX].</p>
-                        <p>— Eu sei que tenho esse débito e quero resolver. Já consultei meu orçamento e hoje eu consigo pagar R$ [VALOR] à vista.</p>
-                        <p>— Antes de aceitar qualquer proposta, quero saber: qual o valor máximo de desconto que vocês conseguem para pagamento à vista hoje?</p>
-                        <p>— [Após a resposta] Entendo. Esse valor ainda está acima do que posso pagar. Consegue consultar se há uma campanha especial, como feirão limpa nome?</p>
-                    </div>
-                    <p class="font-bold text-green-800">🔑 Por que funciona:</p>
-                    <p>Perguntar por "campanha" ou "feirão" aciona uma oferta especial no sistema que o atendente não pode oferecer se você não perguntar. Existe um botão escondido no sistema deles chamado "campanha" — peça para ele clicar.</p>
-                </div>
-            </div>
-
-            <!-- Script 3: E-mail -->
-            <div class="border-2 border-green-200 rounded-2xl p-6 mb-6">
-                <div class="flex items-center gap-2 mb-4"><span class="text-3xl">📧</span><h2 class="text-xl font-extrabold text-gray-900">SCRIPT 3: E-mail (Dívida de Empresa / Serviço)</h2></div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm leading-relaxed space-y-3 font-mono">
-                    <p class="font-bold text-green-800">📋 Quando usar:</p>
-                    <p>Para negociar dívidas com empresas de telefonia, TV por assinatura, internet, água, luz.</p>
-                    <p class="font-bold text-green-800">📋 Assunto do e-mail:</p>
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 italic text-gray-700">
-                        <p>Assunto: Proposta de Negociação de Débito — Cliente [SEU NOME]</p>
-                        <p></p>
-                        <p>Prezados(as),</p>
-                        <p>Meu nome é [SEU NOME], CPF [XXX], e identifiquei um débito em meu nome no valor de aproximadamente R$ [VALOR] referente ao contrato [Nº].</p>
-                        <p>Gostaria de regularizar essa pendência o mais rápido possível. Após análise do meu orçamento, disponho de R$ [VALOR — sugerido: 30% do total] para quitação total do débito.</p>
-                        <p>Peço, por gentileza, que analisem essa proposta de pagamento à vista. Caso aceita, realizo o pagamento em até 24 horas após a resposta.</p>
-                        <p>Estou à disposição para conversar também por telefone: [SEU NÚMERO].</p>
-                        <p>Agradeço a atenção.</p>
-                        <p>Atenciosamente,<br>[SEU NOME]</p>
-                    </div>
-                    <p class="font-bold text-green-800">🔑 Por que funciona:</p>
-                    <p>E-mail cria prova documental. A empresa é obrigada a responder formalmente. Se você oferecer pagamento em 24h, a urgência joga a seu favor — comissão do atendente depende de fechar acordos.</p>
-                </div>
-            </div>
-
-            <!-- Script 4: Presencial -->
-            <div class="border-2 border-green-200 rounded-2xl p-6 mb-6">
-                <div class="flex items-center gap-2 mb-4"><span class="text-3xl">🏢</span><h2 class="text-xl font-extrabold text-gray-900">SCRIPT 4: Presencial (Feirão Limpa Nome — Serasa)</h2></div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm leading-relaxed space-y-3 font-mono">
-                    <p class="font-bold text-green-800">📋 Quando usar:</p>
-                    <p>Em feirões presenciais do Serasa, mutirões de renegociação ou Procon. O script presencial é o mais poderoso porque a empresa está sob pressão do evento.</p>
-                    <p class="font-bold text-green-800">📋 O que falar (chegando no guichê):</p>
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 italic text-gray-700">
-                        <p>— Olá! Estou aqui por causa da dívida com [EMPRESA].</p>
-                        <p>— Já consultei no app do Serasa e vi que o valor é R$ [VALOR].</p>
-                        <p>— Eu quero MUITO sair daqui com o nome limpo hoje. Só que meu orçamento está apertado — eu tenho R$ [VALOR] agora.</p>
-                        <p>— Qual a melhor oferta que você consegue pra mim HOJE?</p>
-                        <p>— [Se a oferta não for boa] Moço(a), eu vim aqui disposto a resolver. Será que não tem como consultar o supervisor? Às vezes tem uma alçada maior...</p>
-                    </div>
-                    <p class="font-bold text-green-800">🔑 Por que funciona:</p>
-                    <p>Em feirão, os atendentes têm metas para bater e alçadas maiores de desconto. Pedir o supervisor é o truque final — o supervisor tem autonomia para liberar descontos de até 95%.</p>
-                </div>
-            </div>
-
-            <!-- Script 5: App do Banco -->
-            <div class="border-2 border-green-200 rounded-2xl p-6 mb-6">
-                <div class="flex items-center gap-2 mb-4"><span class="text-3xl">📲</span><h2 class="text-xl font-extrabold text-gray-900">SCRIPT 5: App do Banco / Serasa (Negociação Digital)</h2></div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm leading-relaxed space-y-3 font-mono">
-                    <p class="font-bold text-green-800">📋 Quando usar:</p>
-                    <p>Pelo aplicativo do Serasa (serasa.com.br/limpa-nome), app do seu banco, ou plataformas como Acordo Certo e QueroQuitar.</p>
-                    <p class="font-bold text-green-800">📋 Passo a passo:</p>
-                    <div class="bg-white border border-gray-200 rounded-lg p-4 italic text-gray-700">
-                        <p>1. Baixe o app Serasa no seu celular (Android/iOS)</p>
-                        <p>2. Faça login com seu CPF (é gratuito)</p>
-                        <p>3. Vá em "Limpar meu Nome"</p>
-                        <p>4. Veja TODAS as dívidas listadas com desconto</p>
-                        <p>5. <strong>Não aceite a primeira oferta.</strong> Clique em "Não posso pagar esse valor"</p>
-                        <p>6. O sistema vai gerar uma oferta melhor (geralmente 10-20% menor)</p>
-                        <p>7. Se ainda estiver alto, saia e volte em 3 dias — o sistema interpreta como hesitação e gera ofertas melhores</p>
-                        <p>8. Quando o valor couber no bolso, pague e guarde o comprovante</p>
-                    </div>
-                    <p class="font-bold text-green-800">🔑 Por que funciona:</p>
-                    <p>O algoritmo do Serasa é programado para intensificar ofertas para usuários que demonstram interesse mas não fecham. Quanto mais vezes você visita e não compra, mais o desconto aumenta (até um limite de ~90%).</p>
-                </div>
-            </div>
-
-            <div class="bg-green-50 border-2 border-green-300 rounded-xl p-6">
-                <h2 class="text-xl font-extrabold text-green-900 mb-3">✅ Checklist Pós-Negociação</h2>
-                <div class="space-y-2 text-sm text-green-800">
-                    <p>☐ Peguei o acordo por escrito (print / e-mail / carta)</p>
-                    <p>☐ Confirmei que o nome sai do Serasa em até 5 dias úteis</p>
-                    <p>☐ Paguei a primeira parcela (ou à vista)</p>
-                    <p>☐ Guardei o comprovante de pagamento</p>
-                    <p>☐ Anotei no diário financeiro o valor economizado</p>
-                    <p>☐ Comemorei essa vitória! 🎉</p>
-                </div>
-            </div>
-        </div>
+<div class="bg-dark-700 rounded-2xl p-6 border border-dark-600">
+    <div class="bg-copper-500/10 rounded-2xl p-5 mb-8 border border-copper-500/20 no-print"><h2 class="text-lg font-extrabold text-white mb-4">🧮 Calculadora de Negociação</h2>
+        <div class="grid grid-cols-2 gap-3 mb-3"><div><label class="text-xs font-semibold text-gray-400">Valor da dívida (R$)</label><input type="number" id="calc-divida" value="1000" class="w-full mt-1 px-3 py-2.5 bg-dark-800 border border-dark-600 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div><div><label class="text-xs font-semibold text-gray-400">Valor negociado (R$)</label><input type="number" id="calc-negociado" value="150" class="w-full mt-1 px-3 py-2.5 bg-dark-800 border border-dark-600 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-copper-500/30"></div></div>
+        <button onclick="calcularDesconto()" class="w-full copper-gradient hover:opacity-90 text-white font-bold py-2.5 rounded-xl text-sm transition shadow-lg">CALCULAR ECONOMIA</button><div id="resultado-desconto" class="mt-4 hidden text-center"></div>
     </div>
+
+    <div class="mb-8"><h2 class="text-lg font-extrabold text-white mb-4">📊 Antes vs Depois</h2><canvas id="chartNegociacao" height="260"></canvas></div>
+
+    <div class="bg-red-500/10 border-l-4 border-red-500 p-4 rounded-r-lg mb-6"><p class="font-bold text-red-400 text-sm">⚠️ LEIA ANTES</p><p class="text-red-400/70 text-xs">Nunca aceite a primeira oferta. Bancos já consideraram sua dívida como perda.</p></div>
+    <div id="scripts-container"></div>
+</div></div>
+
+<script>
+const scripts=[{titulo:'SCRIPT 1: WhatsApp — Cartão de Crédito',icone:'📱',quando:'Quando o banco entrar em contato oferecendo acordo.',texto:`Olá, boa tarde!\n\nRecebi uma oferta de negociação da minha dívida do cartão [BANCO].\n\nMeu débito atual é de aproximadamente R$ [VALOR].\n\nQuero muito quitar, mas no momento só tenho R$ [10-20% DO TOTAL] disponível.\n\nExiste a possibilidade de fecharmos nesse valor à vista? Ou qual a melhor oferta?\n\nFico no aguardo. Obrigado(a)!`,porque:'A dívida já foi vendida para cobrança por centavos. O banco aceita 10-20%.'},{titulo:'SCRIPT 2: Telefone — Empréstimo',icone:'📞',quando:'Para negociar empréstimo ou cheque especial pelo telefone.',texto:`— Alô, boa tarde. Meu nome é [SEU NOME], CPF [XXX].\n— Quero negociar uma dívida com [BANCO].\n— Hoje consigo pagar R$ [VALOR] à vista.\n— Qual o valor máximo de desconto para pagamento à vista?\n— [Após resposta] Consegue consultar se há campanha especial, como feirão limpa nome?`,porque:'Perguntar por "campanha" aciona oferta especial no sistema.'},{titulo:'SCRIPT 3: E-mail — Formal',icone:'📧',quando:'Para dívidas antigas (2+ anos).',texto:`Assunto: Proposta de Quitação — [SEU NOME] — CPF [XXX]\n\nPrezados,\n\nIdentifiquei um débito referente ao contrato [NÚMERO].\n\nValor original: R$ [VALOR]. Considerando o tempo decorrido, proponho pagamento à vista de R$ [5-15%] para quitação total e baixa definitiva nos órgãos de proteção ao crédito.\n\nAguardo retorno em 5 dias úteis.\n\nAtenciosamente,\n[SEU NOME]`,porque:'E-mail documenta tudo. Dívidas com 2+ anos já prescreveram do SCR.'},{titulo:'SCRIPT 4: Presencial — Agência',icone:'🏦',quando:'Para resolver cara a cara, especialmente onde já tem conta.',texto:`"Bom dia. Meu nome é [SEU NOME], sou correntista aqui.\n\nTenho uma dívida de [TIPO] de R$ [VALOR]. Hoje eu tenho R$ [VALOR À VISTA] e quero quitar isso agora.\n\nPrefiro resolver aqui do que ter que ir no Procon ou Banco Central. O que você consegue fazer por mim?"\n\n[Se disser que não pode:]\n"Tudo bem. Você pode chamar o gerente? Sei que ele tem alçada para aprovar esse tipo de acordo."`,porque:'Mencionar Procon e BC mostra que você conhece seus direitos. Gerentes têm autonomia.'},{titulo:'SCRIPT 5: Chat do App',icone:'💬',quando:'Use o chat oficial dentro do app do banco.',texto:`"Olá, gostaria de negociar minha dívida do cartão.\n\nValor atual: R$ [VALOR]\nTenho R$ [VALOR À VISTA] disponível hoje.\n\nQual a melhor oferta para pagamento à vista?\n\nObs: já consultei o Serasa e há ofertas de outros bancos com 90% de desconto."`,porque:'Chat do app registra tudo. Mencionar Serasa mostra que você pesquisou.'}];
+
+document.getElementById('scripts-container').innerHTML=scripts.map((s,i)=>`<div class="border-2 border-dark-500 rounded-2xl p-5 mb-5 hover:border-copper-500/30 transition"><div class="flex items-center gap-2 mb-3"><span class="text-2xl">${s.icone}</span><h2 class="text-lg font-extrabold text-white">${s.titulo}</h2></div><p class="text-xs font-bold text-copper-400 mb-2">📋 Quando usar:</p><p class="text-xs text-gray-400 mb-3">${s.quando}</p><p class="text-xs font-bold text-copper-400 mb-2">📋 O que dizer:</p><div class="bg-dark-800 rounded-xl p-4 text-sm text-gray-300 italic leading-relaxed whitespace-pre-line border border-dark-600">${s.texto}</div><div class="mt-3"><button onclick="copiar(this,\`${s.texto.replace(/`/g,'\\`')}\`)" class="text-xs font-bold text-copper-400 hover:text-copper-300 bg-copper-500/10 hover:bg-copper-500/20 px-3 py-1.5 rounded-lg transition">📋 Copiar script</button></div><div class="mt-3 bg-copper-500/10 rounded-lg p-3 text-xs"><span class="font-bold text-copper-400">🔑 Por que funciona:</span><span class="text-gray-400"> ${s.porque}</span></div></div>`).join('');
+
+function copiar(btn,texto){navigator.clipboard.writeText(texto).then(()=>{btn.textContent='✅ Copiado!';setTimeout(()=>btn.textContent='📋 Copiar script',2000)}).catch(()=>alert('Selecione o texto manualmente.'))}
+function calcularDesconto(){const d=parseFloat(document.getElementById('calc-divida').value)||0;const n=parseFloat(document.getElementById('calc-negociado').value)||0;const e=d-n;const pct=d>0?((e/d)*100).toFixed(0):0;document.getElementById('resultado-desconto').innerHTML=`<div class="grid grid-cols-3 gap-2 text-center"><div class="bg-dark-800 rounded-lg p-2 border border-dark-600"><p class="text-xs text-gray-400">Dívida</p><p class="font-extrabold text-red-400">R$ ${d.toFixed(0)}</p></div><div class="bg-dark-800 rounded-lg p-2 border border-dark-600"><p class="text-xs text-gray-400">Negociado</p><p class="font-extrabold text-green-400">R$ ${n.toFixed(0)}</p></div><div class="bg-dark-800 rounded-lg p-2 border border-copper-500/20"><p class="text-xs text-gray-400">Economia</p><p class="font-extrabold text-copper-400">${pct}%</p></div></div><p class="text-xs text-gray-400 mt-2">Você economizou <strong class="text-green-400">R$ ${e.toFixed(0)}</strong>!</p>`;document.getElementById('resultado-desconto').classList.remove('hidden')}
+
+new Chart(document.getElementById('chartNegociacao'),{type:'bar',data:{labels:['Cartão','Cheque Esp.','Empréstimo','Água/Luz','Multa'],datasets:[{label:'Original',data:[2000,1500,5000,800,300],backgroundColor:'#EF4444',borderRadius:6},{label:'Negociado',data:[200,180,500,400,150],backgroundColor:'#C07B5E',borderRadius:6}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:11},padding:14,color:'#999',usePointStyle:true}}},scales:{y:{ticks:{callback:v=>'R$ '+v,font:{family:'Inter'},color:'#999'},grid:{color:'#333'}},x:{ticks:{font:{family:'Inter',size:10},color:'#999'}}}}});
+</script>
 </body>
 </html>
