@@ -65,17 +65,63 @@
                 Método simples de 3 passos para organizar suas contas, sair das dívidas e sobrar dinheiro no fim do mês.
             </p>
 
-            <!-- VSL Placeholder -->
-            <div class="relative bg-dark-700 rounded-2xl overflow-hidden mb-7 shadow-lg ring-1 ring-dark-600">
-                <div class="aspect-video flex items-center justify-center bg-dark-900">
-                    <div class="text-center p-6">
-                        <div class="w-16 h-16 mx-auto mb-3 rounded-full copper-gradient flex items-center justify-center">
-                            <svg class="w-7 h-7 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <!-- Video / Slideshow Modules -->
+            <div class="relative bg-dark-900 rounded-2xl overflow-hidden mb-7 shadow-lg ring-1 ring-dark-600" style="min-height:220px">
+                <div id="slideshow" class="relative w-full" style="aspect-ratio:16/9;min-height:220px">
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700" id="slide-0">
+                        <div class="text-center">
+                            <span class="text-5xl block mb-4">💰</span>
+                            <p class="text-white font-extrabold text-xl mb-2">Saia do Vermelho em 30 Dias</p>
+                            <p class="text-copper-400 text-sm font-bold">5 Módulos · Do Diagnóstico à Liberdade Financeira</p>
+                            <p class="text-gray-500 text-xs mt-3">Apresentação automática ↓</p>
                         </div>
-                        <p class="text-white font-bold text-lg mb-1">Assista a apresentação gratuita</p>
-                        <p class="text-gray-400 text-sm">Toque para assistir o vídeo completo</p>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-1">
+                        <div class="text-center max-w-xs">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-copper-500/20 flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-extrabold text-lg">01</span></div>
+                            <p class="text-white font-extrabold text-lg mb-1">O Despertar</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">Descubra para onde seu dinheiro está fugindo. Mentalidade, diagnóstico e os 3 ralos financeiros que drenam seu salário.</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-2">
+                        <div class="text-center max-w-xs">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-copper-500/20 flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-extrabold text-lg">02</span></div>
+                            <p class="text-white font-extrabold text-lg mb-1">O Mapa da Mina</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">Crie um orçamento sem sofrimento com o método 50-30-20 adaptado à realidade de quem ganha pouco.</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-3">
+                        <div class="text-center max-w-xs">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-copper-500/20 flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-extrabold text-lg">03</span></div>
+                            <p class="text-white font-extrabold text-lg mb-1">O Escudo Financeiro</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">Negocie suas dívidas com até 90% de desconto e monte sua reserva de emergência de R$ 1.000.</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-4">
+                        <div class="text-center max-w-xs">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-copper-500/20 flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-extrabold text-lg">04</span></div>
+                            <p class="text-white font-extrabold text-lg mb-1">O Dinheiro Trabalhando</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">Introdução segura aos investimentos: Tesouro Selic, CDB e juros compostos explicados com pão francês.</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-5">
+                        <div class="text-center max-w-xs">
+                            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-copper-500/20 flex items-center justify-center ring-1 ring-copper-500/20"><span class="text-copper-400 font-extrabold text-lg">05</span></div>
+                            <p class="text-white font-extrabold text-lg mb-1">Liberdade e Futuro</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">Metas SMART, sistema de automação financeira e o ritual semanal de 5 minutos para nunca mais voltar ao vermelho.</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-700 opacity-0" id="slide-6">
+                        <div class="text-center">
+                            <span class="text-4xl block mb-3">🔥</span>
+                            <p class="text-white font-extrabold text-xl mb-2">Tudo isso por R$ 49,99</p>
+                            <p class="text-copper-400 text-sm font-bold">+ 7 ferramentas interativas + garantia de 7 dias</p>
+                            <a href="checkout.html" class="inline-block mt-4 copper-gradient text-white font-extrabold text-sm py-3 px-6 rounded-xl">QUERO COMEÇAR AGORA</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Indicadores -->
+                <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="slide-dots"></div>
             </div>
 
             <!-- Price + CTA -->
@@ -231,6 +277,37 @@
             {num:'04',title:'O Dinheiro Trabalhando',desc:'Introdução segura aos investimentos — Tesouro Selic, CDB, juros compostos explicados com pão francês.',info:'📖 Leitura · 🏦 Guia de bancos · ✏️ Exercício'},
             {num:'05',title:'Liberdade e Futuro',desc:'Planejamento de metas SMART, sistema de automação e o ritual semanal de 5 minutos.',info:'📖 Leitura · 💡 50 ideias renda extra · ✂️ 30 cortes'}
         ];
+        // Slideshow
+        (function(){
+            const totalSlides = 7;
+            let current = 0;
+            let interval;
+            const dots = document.getElementById('slide-dots');
+            for(let i=0; i<totalSlides; i++){
+                const d = document.createElement('span');
+                d.className = 'w-2 h-2 rounded-full transition-all duration-500 ' + (i===0 ? 'bg-copper-400 w-4' : 'bg-dark-500');
+                dots.appendChild(d);
+            }
+            function showSlide(n){
+                for(let i=0; i<totalSlides; i++){
+                    const el = document.getElementById('slide-'+i);
+                    if(el) el.style.opacity = i===n ? '1' : '0';
+                }
+                const allDots = dots.querySelectorAll('span');
+                allDots.forEach((d,i) => {
+                    d.className = 'w-2 h-2 rounded-full transition-all duration-500 ' + (i===n ? 'bg-copper-400 w-4' : 'bg-dark-500');
+                });
+                current = n;
+            }
+            function nextSlide(){ showSlide((current + 1) % totalSlides); }
+            interval = setInterval(nextSlide, 3000);
+            document.getElementById('slideshow').addEventListener('click', function(){
+                clearInterval(interval);
+                nextSlide();
+                interval = setInterval(nextSlide, 3000);
+            });
+        })();
+
         document.getElementById('modulos-list').innerHTML = modulos.map(m => `
             <div class="bg-dark-700 rounded-xl p-4 border border-dark-600">
                 <div class="flex gap-3">
