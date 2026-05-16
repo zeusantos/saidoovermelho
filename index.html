@@ -10,6 +10,23 @@
     <meta property="og:site_name" content="Saia do Vermelho">
     <meta property="og:locale" content="pt_BR">
     <title>Saia do Vermelho em 30 Dias | Finanças para Iniciantes</title>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1658312061891423');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1658312061891423&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -307,6 +324,27 @@
                 interval = setInterval(nextSlide, 3000);
             });
         })();
+
+        // Meta Pixel - ViewContent ao scrollar até módulos
+        let viewContentFired = false;
+        const modulosSection = document.querySelector('#modulos-list').closest('section');
+        function checkViewContent() {
+            if (viewContentFired) return;
+            if (modulosSection) {
+                const rect = modulosSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 200) {
+                    viewContentFired = true;
+                    fbq('track', 'ViewContent', {content_name: 'Modulos do Curso', content_category: 'Curso'});
+                }
+            }
+        }
+        window.addEventListener('scroll', checkViewContent, {passive: true});
+        checkViewContent();
+
+        // Meta Pixel - Lead nos CTAs
+        document.querySelectorAll('a[href="checkout.html"]').forEach(function(el) {
+            el.addEventListener('click', function() { fbq('track', 'Lead', {content_name: 'CTA Checkout'}); });
+        });
 
         document.getElementById('modulos-list').innerHTML = modulos.map(m => `
             <div class="bg-dark-700 rounded-xl p-4 border border-dark-600">
